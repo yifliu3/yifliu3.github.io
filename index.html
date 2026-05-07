@@ -872,6 +872,429 @@
         height: auto !important;
       }
     }
+
+    /* ============================== */
+    /* Visual Polish (added)          */
+    /* ============================== */
+
+    /* Subtle page background for depth */
+    body {
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(52, 152, 219, 0.06), transparent 60%),
+        radial-gradient(900px 500px at 110% 10%, rgba(155, 89, 182, 0.05), transparent 60%),
+        #fbfcfe;
+    }
+
+    /* Soft halo around avatar */
+    .image.avatar,
+    header > a.image.avatar {
+      box-shadow:
+        0 8px 24px rgba(52, 152, 219, 0.18),
+        0 0 0 4px rgba(255, 255, 255, 0.9),
+        0 0 0 5px rgba(52, 152, 219, 0.18);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .image.avatar:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 14px 36px rgba(52, 152, 219, 0.28),
+        0 0 0 4px rgba(255, 255, 255, 0.95),
+        0 0 0 5px rgba(52, 152, 219, 0.28);
+    }
+
+    /* Section headers: gradient underline + left accent bar */
+    section h2 {
+      position: relative;
+      padding-left: 14px;
+      padding-bottom: 10px;
+      border-bottom: none;
+      background-image: linear-gradient(90deg, rgba(52, 152, 219, 0.45), rgba(155, 89, 182, 0.25), rgba(0, 0, 0, 0));
+      background-repeat: no-repeat;
+      background-size: 100% 2px;
+      background-position: 0 100%;
+    }
+
+    section h2::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 22%;
+      bottom: 28%;
+      width: 4px;
+      border-radius: 3px;
+      background: linear-gradient(180deg, #3498db, #9b59b6);
+    }
+
+    /* Publication card polish */
+    .project-container {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      border-radius: 12px;
+      padding: 14px 16px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 6px 18px rgba(0, 0, 0, 0.04);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .project-container:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(52, 152, 219, 0.08), 0 14px 30px rgba(52, 152, 219, 0.10);
+      border-color: rgba(52, 152, 219, 0.18);
+    }
+
+    /* News card polish */
+    .news-section > div > div {
+      background: linear-gradient(180deg, #ffffff, #f7faff) !important;
+      border: 1px solid rgba(52, 152, 219, 0.10);
+      box-shadow: 0 2px 10px rgba(52, 152, 219, 0.06) !important;
+    }
+
+    /* News list items: hover effect + smoother spacing */
+    .news-list li {
+      border-radius: 8px;
+      padding: 8px 10px !important;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .news-list li:hover {
+      background-color: rgba(52, 152, 219, 0.06);
+      transform: translateX(2px);
+    }
+
+    .news-list li strong {
+      color: #3498db !important;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Text buttons: subtle gradient on hover */
+    .text-btn {
+      transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .text-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(52, 152, 219, 0.25);
+    }
+
+    /* Education list polish */
+    .education-list li {
+      padding: 10px 12px 10px 20px;
+      border-radius: 8px;
+      transition: background-color 0.2s ease;
+    }
+
+    .education-list li:hover {
+      background-color: rgba(52, 152, 219, 0.05);
+    }
+
+    /* Mobile tweaks for new visuals */
+    @media print, screen and (max-width: 1060px) {
+      .project-container {
+        padding: 12px;
+      }
+      section h2 {
+        padding-left: 12px;
+      }
+    }
+
+    /* ============================== */
+    /* Visual Polish v2 (added)       */
+    /* ============================== */
+
+    /* Gradient name */
+    header h1 {
+      background: linear-gradient(135deg, #2c3e50 0%, #3498db 50%, #9b59b6 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 0.3px;
+      font-weight: 600;
+    }
+
+    /* Position pill */
+    .position {
+      display: inline-block;
+      padding: 3px 12px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(52, 152, 219, 0.10), rgba(155, 89, 182, 0.10));
+      color: #2c3e50;
+      font-size: 12px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.4px;
+      margin-bottom: 8px !important;
+    }
+
+    /* Affiliation underline animation */
+    .affiliation {
+      position: relative;
+      padding-bottom: 1px;
+    }
+    .affiliation::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: linear-gradient(90deg, #3498db, #9b59b6);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .affiliation:hover::after {
+      transform: scaleX(1);
+    }
+
+    /* Email styled like inline code */
+    email {
+      display: inline-block;
+      padding: 2px 8px;
+      margin-top: 6px;
+      border-radius: 6px;
+      background: rgba(52, 152, 219, 0.06);
+      border: 1px dashed rgba(52, 152, 219, 0.25);
+      color: #2c3e50;
+    }
+
+    /* Social icons soft halo on hover */
+    .social-icons a {
+      border: 1px solid rgba(52, 152, 219, 0.20);
+    }
+    .social-icons a:hover {
+      box-shadow: 0 6px 16px rgba(52, 152, 219, 0.35);
+    }
+
+    /* Research interests as chips */
+    .research-interests p {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 11px !important;
+      color: #7f8c8d !important;
+      margin-bottom: 10px !important;
+    }
+    .research-interests ul {
+      list-style: none !important;
+      padding-left: 0 !important;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .research-interests li {
+      list-style: none;
+      margin: 0 !important;
+      padding: 4px 10px;
+      font-size: 12px;
+      color: #2c3e50;
+      background: linear-gradient(135deg, rgba(52, 152, 219, 0.08), rgba(155, 89, 182, 0.08));
+      border: 1px solid rgba(52, 152, 219, 0.18);
+      border-radius: 999px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+    .research-interests li:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(52, 152, 219, 0.18);
+      background: linear-gradient(135deg, rgba(52, 152, 219, 0.16), rgba(155, 89, 182, 0.16));
+    }
+
+    /* About Me as subtle quote card */
+    .about-section {
+      position: relative;
+      padding: 18px 20px 18px 22px;
+      background: linear-gradient(180deg, #ffffff, #f7faff);
+      border: 1px solid rgba(52, 152, 219, 0.10);
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(52, 152, 219, 0.06);
+    }
+    .about-section::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 14px;
+      bottom: 14px;
+      width: 3px;
+      border-radius: 3px;
+      background: linear-gradient(180deg, #3498db, #9b59b6);
+    }
+    .about-section p {
+      margin-bottom: 0 !important;
+    }
+
+    /* Navbar: active link indicator on click via :target trick (best-effort) */
+    .mobile-nav-item a {
+      position: relative;
+    }
+
+    /* Smooth scroll for anchor jumps */
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 70px;
+    }
+
+    /* Footer subtle gradient */
+    footer {
+      background-image: linear-gradient(90deg, rgba(52, 152, 219, 0.30), rgba(155, 89, 182, 0.20), rgba(0, 0, 0, 0));
+      background-repeat: no-repeat;
+      background-size: 100% 1px;
+      background-position: 0 0;
+      border-top: none !important;
+    }
+
+    /* Mobile tweaks for v2 */
+    @media print, screen and (max-width: 1060px) {
+      .about-section {
+        padding: 14px 14px 14px 16px;
+      }
+      .research-interests ul {
+        justify-content: center;
+      }
+    }
+
+    /* ============================== */
+    /* Compact publication list       */
+    /* ============================== */
+
+    .pub-subhead {
+      margin: 18px 0 12px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #7f8c8d;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .pub-subhead::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(52, 152, 219, 0.25), rgba(155, 89, 182, 0.10), rgba(0, 0, 0, 0));
+    }
+
+    .pub-compact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .pub-compact {
+      position: relative;
+      padding: 12px 16px 12px 18px;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 4px 12px rgba(0, 0, 0, 0.03);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .pub-compact:hover {
+      transform: translateY(-1px);
+      border-color: rgba(52, 152, 219, 0.18);
+      box-shadow: 0 4px 16px rgba(52, 152, 219, 0.10);
+    }
+
+    .pub-compact::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      bottom: 12px;
+      width: 3px;
+      border-radius: 3px;
+      background: linear-gradient(180deg, #3498db, #9b59b6);
+    }
+
+    .pub-compact-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .pub-compact-title {
+      flex: 1;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    .pub-compact-title a {
+      color: #2c3e50;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .pub-compact-title a:hover {
+      color: #3498db;
+    }
+
+    .pub-compact-badge {
+      flex-shrink: 0;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      padding: 3px 8px;
+      border-radius: 5px;
+      color: #fff;
+      background: #3498db;
+      white-space: nowrap;
+      box-shadow: 0 2px 6px rgba(52, 152, 219, 0.25);
+    }
+
+    .pub-compact-authors {
+      font-size: 12px;
+      color: #595959;
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    .pub-compact-authors strong {
+      color: #2c3e50;
+    }
+
+    @media print, screen and (max-width: 1060px) {
+      .pub-compact-header {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 6px;
+      }
+    }
+
+    /* Gradient placeholder for missing teaser images */
+    .media-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.35), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.25), transparent 45%),
+        linear-gradient(135deg, #5b8def 0%, #9b59b6 55%, #ff6b9d 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      text-align: center;
+      padding: 14px;
+      box-shadow: 0 4px 16px rgba(91, 141, 239, 0.20);
+    }
+
+    .media-placeholder-title {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+    }
+
+    .media-placeholder-sub {
+      font-size: 11px;
+      opacity: 0.92;
+      margin-top: 4px;
+      max-width: 90%;
+      line-height: 1.35;
+    }
   </style>
 </head>
 
@@ -916,10 +1339,9 @@
       <div class="research-interests">
         <p>Research Interests:</p>
         <ul>
-          <li>World Model</li>
+          <li>Video/3D World Model</li>
           <li>3D Reconstruction</li>
           <li>Generative AI</li>
-          <li>AI Applications</li>
         </ul>
       </div>
     </header>
@@ -930,13 +1352,13 @@
       <h2 id="about">About Me</h2>
       <div class="about-section" style="font-size: 20px;">
         <p style="font-size: 16px;">
-          I am currently a third year Ph.D. student in the Department of Electronic Engineering, 
+          I am currently a final year Ph.D. student in the Department of Electronic Engineering, 
           Chinese University of Hong Kong <a href="https://www.cuhk.edu.hk/">(CUHK)</a>, supervised by
           <a href="https://www.ee.cuhk.edu.hk/~yxyuan/" target="_blank">Prof. Yixuan Yuan</a>. 
           Before that, I received B. Eng. degree in Electronic Information Engineering from the 
           Huazhong University of Science and Technology<a href="http://english.hust.edu.cn/"> (HUST)</a> in 2021. 
           During my Ph.D. studies, I was fortunate to work with <a href="https://zhenwwang.github.io/">Dr. Zhenwei Wang</a> 
-          and <a href="https://tengfei-wang.github.io/">Dr. Tengfei Wang</a> from <a href="https://hunyuan.tencent.com">Tencent Hunyuan3D</a>, World Model Team.
+          and <a href="https://tengfei-wang.github.io/">Dr. Tengfei Wang</a> from <a href="https://hunyuan.tencent.com">Tencent Hunyuan, 3D Center</a>, World Model Team.
         </p>
       </div>
 
@@ -955,6 +1377,10 @@
             line-height: 1.6;
           ">
             <ul class="news-list" style="margin: 0; padding: 0;">
+              <li style="margin-bottom: 3px;">
+                <strong>[04/2026]</strong>
+                <span class="news-content">Our paper <b>WorldMirror</b> is accepted by <b>ICML 2026</b>!</span>
+              </li>
               <li style="margin-bottom: 3px;">
                 <strong>[10/2025]</strong>
                 <span class="news-content"> Our work <b>WorldMirror</b> is released. Check it out!</span>
@@ -1002,8 +1428,14 @@
         <ul class="education-list">
           <li>
             <div class="degree">
-              Research Intern, 
-              <a href="https://hunyuan.tencent.com">Tencent Hunyuan3D</a>, World Model Team<br>
+              Research Intern,
+              <a href="https://hunyuan.tencent.com">Tencent Hunyuan</a>, X Center, World Model Team<br>
+            </div>
+          </li>
+          <li>
+            <div class="degree">
+              Research Intern,
+              <a href="https://hunyuan.tencent.com">Tencent Hunyuan</a>, 3D Center, World Model Team<br>
             </div>
           </li>
         </ul>
@@ -1021,7 +1453,7 @@
             <tbody>
               <tr>
                 <td class="media-col">
-                  <div class="conference-badge">Preprint</div>
+                  <div class="conference-badge">ICML 2026</div>
                   <div class="project-media">
                     <video width="100%" style="margin-top: -20px;" autoplay muted loop playsinline>
                       <source src="vid/WorldMirror.mp4" type="video/mp4">
@@ -1045,7 +1477,7 @@
                     Yawei Luo,
                     Chunchao Guo
                   </p>
-                  <p class="pub-venue">arXiv preprint 2025</p>
+                  <p class="pub-venue">International Conference on Machine Learning (ICML 2026)</p>
                   <div class="text-links">
                     <a href="https://arxiv.org/abs/2510.10726" class="text-btn">Paper</a>
                     <a href="https://github.com/Tencent-Hunyuan/HunyuanWorld-Mirror" class="text-btn">Code</a>
@@ -1054,51 +1486,6 @@
                   </div>
                   <p class="pub-description">
                     A universal 3D reconstruction framework capable of processing diverse input modalities and generating various output representations.
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- X-GRM Paper -->
-        <div class="project-container">
-          <table class="pub-table">
-            <tbody>
-              <tr>
-                <td class="media-col">
-                  <div class="conference-badge">Preprint</div>
-                  <div class="project-media">
-                    <img src="pic/IMG_xgrm.png" width="100%" alt="X-GRM Paper" style="margin-top: -20px;">
-                  </div>
-                </td>
-                <td class="content-col">
-                  <h4 class="pub-title">
-                    <a href="https://arxiv.org/abs/2505.15235">
-                      X-GRM: Large Gaussian Reconstruction Model for Sparse-view X-rays to Computed Tomography
-                    </a>
-                  </h4>
-
-                  <p class="pub-authors">
-                    <strong>Yifan Liu</strong>,
-                    Wuyang Li,
-                    Weihao Yu,
-                    Chenxin Li,
-                    Alexandre Alahi,
-                    Max Meng,
-                    Yixuan Yuan
-                  </p>
-
-                  <p class="pub-venue">arXiv preprint 2025</p>
-
-                  <div class="text-links">
-                    <a href="https://arxiv.org/abs/2505.15235" class="text-btn">Paper</a>
-                    <a href="https://github.com/CUHK-AIM-Group/X-GRM" class="text-btn">Code</a>
-                    <a href="https://cuhk-aim-group.github.io/X-GRM/" class="text-btn">Project Page</a>
-                  </div>
-
-                  <p class="pub-description">
-                    A pioneering feedforward 3D Gaussian Splatting approach for CT reconstruction.
                   </p>
                 </td>
               </tr>
@@ -1240,41 +1627,39 @@
             </table>
           </div>
 
-        <!-- GRAB-Net Paper -->
+        <!-- U-KAN Paper -->
         <div class="project-container">
           <table class="pub-table">
             <tbody>
               <tr>
                 <td class="media-col">
-                  <div class="conference-badge">IEEE TMI 2023</div>
+                  <div class="conference-badge">AAAI 2025</div>
                   <div class="project-media">
-                    <img src="pic/IMG_grabnet.png" width="100%" alt="GRAB-Net Paper" style="margin-top: -20px;">
+                    <img src="pic/IMG_ukan.jpg" width="100%" alt="U-KAN Paper" style="margin-top: -20px;">
                   </div>
                 </td>
                 <td class="content-col">
                   <h4 class="pub-title">
-                    <a href="https://ieeexplore.ieee.org/document/10145682">
-                      GRAB-Net: Graph-based boundary-aware network for medical point cloud segmentation
+                    <a href="https://arxiv.org/abs/2406.02918" target="_blank" rel="noopener">
+                      U-KAN Makes Strong Backbone for Medical Image Segmentation and Generation
                     </a>
                   </h4>
 
                   <p class="pub-authors">
-                    <strong>Yifan Liu</strong>,
-                    Wuyang Li,
-                    Jie Liu,
-                    Hui Chen,
-                    Yixuan Yuan
+                    Chenxin Li, Xinyu Liu, Wuyang Li, Cheng Wang, Hengyu Liu,
+                    <strong>Yifan Liu</strong>, Zhen Chen, Yixuan Yuan
                   </p>
 
-                  <p class="pub-venue">IEEE Transactions on Medical Imaging 42 (9), 2776-2786</p>
+                  <p class="pub-venue">AAAI Conference on Artificial Intelligence (AAAI 2025)</p>
 
                   <div class="text-links">
-                    <a href="https://ieeexplore.ieee.org/document/10093984" class="text-btn">Paper</a>
-                    <a href="https://github.com/CUHK-AIM-Group/EPT-Net" class="text-btn">Code</a>
+                    <a href="https://arxiv.org/abs/2406.02918" class="text-btn" target="_blank" rel="noopener">Paper</a>
+                    <a href="https://github.com/CUHK-AIM-Group/U-KAN" class="text-btn" target="_blank" rel="noopener">Code</a>
+                    <a href="https://yes-u-kan.github.io/" class="text-btn" target="_blank" rel="noopener">Project Page</a>
                   </div>
 
                   <p class="pub-description">
-                    A graph-based boundary-aware network for medical point cloud segmentation with improved boundary detection capabilities.
+                    Introducing Kolmogorov-Arnold Networks (KANs) as a strong backbone for medical image segmentation and generation.
                   </p>
                 </td>
               </tr>
@@ -1282,7 +1667,122 @@
           </table>
         </div>
 
-        
+        <!-- GaussianReg Paper -->
+        <div class="project-container">
+          <table class="pub-table">
+            <tbody>
+              <tr>
+                <td class="media-col">
+                  <div class="conference-badge">ICCV 2025</div>
+                  <div class="project-media">
+                    <img src="pic/IMG_gaussianreg.png" width="100%" alt="GaussianReg Paper" style="margin-top: -20px;">
+                  </div>
+                </td>
+                <td class="content-col">
+                  <h4 class="pub-title">
+                    <a href="https://openaccess.thecvf.com/content/ICCV2025/html/Yu_GaussianReg_Rapid_2D3D_Registration_for_Emergency_Surgery_via_Explicit_3D_ICCV_2025_paper.html" target="_blank" rel="noopener">
+                      GaussianReg: Rapid 2D/3D Registration for Emergency Surgery via Explicit 3D Modeling with Gaussian Primitives
+                    </a>
+                  </h4>
+
+                  <p class="pub-authors">
+                    Weihao Yu, Xiaoqing Guo, Xinyu Liu,
+                    <strong>Yifan Liu</strong>, Haonan Zheng, Yawen Huang, Yixuan Yuan
+                  </p>
+
+                  <p class="pub-venue">IEEE/CVF International Conference on Computer Vision (ICCV 2025)</p>
+
+                  <div class="text-links">
+                    <a href="https://openaccess.thecvf.com/content/ICCV2025/html/Yu_GaussianReg_Rapid_2D3D_Registration_for_Emergency_Surgery_via_Explicit_3D_ICCV_2025_paper.html" class="text-btn" target="_blank" rel="noopener">Paper</a>
+                    <a href="https://github.com/CUHK-AIM-Group/GaussianReg" class="text-btn" target="_blank" rel="noopener">Code</a>
+                  </div>
+
+                  <p class="pub-description">
+                    Rapid 2D/3D registration for emergency surgery using sparse Gaussian primitives and a ray-based registration scheme.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- GTP-4o Paper -->
+        <div class="project-container">
+          <table class="pub-table">
+            <tbody>
+              <tr>
+                <td class="media-col">
+                  <div class="conference-badge">ECCV 2024</div>
+                  <div class="project-media">
+                    <img src="pic/IMG_gtp4o.png" width="100%" alt="GTP-4o Paper" style="margin-top: -20px;">
+                  </div>
+                </td>
+                <td class="content-col">
+                  <h4 class="pub-title">
+                    <a href="https://arxiv.org/abs/2407.05540" target="_blank" rel="noopener">
+                      GTP-4o: Modality-prompted Heterogeneous Graph Learning for Omni-modal Biomedical Representation
+                    </a>
+                  </h4>
+
+                  <p class="pub-authors">
+                    Chenxin Li, Xinyu Liu, Cheng Wang,
+                    <strong>Yifan Liu</strong>, Weihao Yu, Jing Shao, Yixuan Yuan
+                  </p>
+
+                  <p class="pub-venue">European Conference on Computer Vision (ECCV 2024)</p>
+
+                  <div class="text-links">
+                    <a href="https://arxiv.org/abs/2407.05540" class="text-btn" target="_blank" rel="noopener">Paper</a>
+                    <a href="https://gtp4-o.github.io/" class="text-btn" target="_blank" rel="noopener">Project Page</a>
+                  </div>
+
+                  <p class="pub-description">
+                    A heterogeneous graph framework for unified omni-modal biomedical representation that handles missing modalities.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- FedPD Paper -->
+        <div class="project-container">
+          <table class="pub-table">
+            <tbody>
+              <tr>
+                <td class="media-col">
+                  <div class="conference-badge">ICCV 2023</div>
+                  <div class="project-media">
+                    <img src="pic/IMG_fedpd.png" width="100%" alt="FedPD Paper" style="margin-top: -20px;">
+                  </div>
+                </td>
+                <td class="content-col">
+                  <h4 class="pub-title">
+                    <a href="https://openaccess.thecvf.com/content/ICCV2023/html/Yang_FedPD_Federated_Open_Set_Recognition_with_Parameter_Disentanglement_ICCV_2023_paper.html" target="_blank" rel="noopener">
+                      FedPD: Federated Open Set Recognition with Parameter Disentanglement
+                    </a>
+                  </h4>
+
+                  <p class="pub-authors">
+                    Chen Yang, Meilu Zhu,
+                    <strong>Yifan Liu</strong>, Yixuan Yuan
+                  </p>
+
+                  <p class="pub-venue">IEEE/CVF International Conference on Computer Vision (ICCV 2023)</p>
+
+                  <div class="text-links">
+                    <a href="https://openaccess.thecvf.com/content/ICCV2023/html/Yang_FedPD_Federated_Open_Set_Recognition_with_Parameter_Disentanglement_ICCV_2023_paper.html" class="text-btn" target="_blank" rel="noopener">Paper</a>
+                  </div>
+
+                  <p class="pub-description">
+                    A federated open-set recognition framework with parameter disentanglement for cross-client closed/open-set learning.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
       </div>
 
       <!-- Professional Activities Section -->
@@ -1290,11 +1790,11 @@
       <div class="education-section">
         <ul class="education-list">
           <li>
-            <div class="degree">Conference Reviewer: NeurIPS, ICLR, CVPR, ICCV, ECCV, AAAI, MICCAI</div>
+            <div class="degree">Conference Reviewer: NeurIPS, ICLR, ICML, CVPR, ICCV, ECCV, AAAI</div>
             <div class="date"></div>
           </li>
           <li>
-            <div class="degree">Journal Reviewer: TVCG, TIP, TCSVT, TMI, MIA</div>
+            <div class="degree">Journal Reviewer: TPAMI, TIP, TVCG, TMM, TCSVT, TMI, MIA</div>
             <div class="date"></div>
           </li>
         </ul>
@@ -1322,7 +1822,7 @@
       <!-- Footer -->
       <footer>
         <p>
-          © Yifan Liu | Last updated: October 2025
+          © Yifan Liu | Last updated: May 2026
         </p>
       </footer>
     </section>
