@@ -1199,9 +1199,9 @@
                   <h4 class="pub-title">HY-World 1.1</h4>
                   <p class="pub-authors">Core Contributor, 2025</p>
                   <div class="text-links">
-                    <a href="https://github.com/Tencent-Hunyuan/HunyuanWorld-1.0" class="text-btn" target="_blank" rel="noopener">Code</a>
+                    <a href="https://github.com/Tencent-Hunyuan/HunyuanWorld-Mirror" class="text-btn" target="_blank" rel="noopener" data-no-stars="true">Code</a>
                     <a href="https://3d-models.hunyuan.tencent.com/world/" class="text-btn" target="_blank" rel="noopener">Project Page</a>
-                    <a href="https://huggingface.co/spaces/tencent/HunyuanWorld-1" class="text-btn" target="_blank" rel="noopener">Try it now</a>
+                    <a href="https://huggingface.co/spaces/tencent/HunyuanWorld-Mirror" class="text-btn" target="_blank" rel="noopener">Try it now</a>
                   </div>
                   <p class="pub-description">
                     A 3D world reconstruction framework capable of producing immersive, explorable, and interactive scenes from arbitrary-view inputs.
@@ -1675,6 +1675,7 @@
       var links = document.querySelectorAll('a.text-btn[href*="github.com"]');
 
       links.forEach(function (link) {
+        if (link.dataset.noStars === 'true') return;
         var info = parseRepo(link.href);
         if (!info) return;
         var key = info.owner + '/' + info.repo;
