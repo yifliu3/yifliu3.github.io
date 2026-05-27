@@ -815,6 +815,36 @@
       opacity: 0.8;
     }
 
+    /* ----- ClustrMaps visitor map ----- */
+    .clustrmaps-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 28px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid var(--rule);
+      max-width: 220px;
+    }
+    .clustrmaps-wrap .cm-label {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--subtle);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .clustrmaps-wrap #clustrmaps-container {
+      width: 200px;
+      max-width: 100%;
+      opacity: 0.92;
+    }
+    .clustrmaps-wrap #clustrmaps-container img,
+    .clustrmaps-wrap #clustrmaps-container > div {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+
     .visit-count {
       font-family: var(--mono);
       font-weight: 500;
@@ -1106,7 +1136,7 @@
           During my Ph.D., I have been fortunate to work with
           <a href="https://zhenwwang.github.io/">Dr. Zhenwei Wang</a> and
           <a href="https://tengfei-wang.github.io/">Dr. Tengfei Wang</a> at the
-          <a href="https://hunyuan.tencent.com">Tencent Hunyuan</a> 3D Center, World Model Team.
+          <a href="https://hunyuan.tencent.com">Tencent Hunyuan</a> 3D Generation Team.
         </p>
       </div>
 
@@ -1116,6 +1146,10 @@
         <div class="news-scroll">
           <div class="news-scroll-inner">
             <ul class="news-list">
+              <li>
+                <strong>[05/2026]</strong>
+                <span class="news-content">I successfully passed my <b>Ph.D. defense</b>!</span>
+              </li>
               <li>
                 <strong>[04/2026]</strong>
                 <span class="news-content">Our paper <b>WorldMirror</b> is accepted by <b>ICML 2026</b>!</span>
@@ -1168,13 +1202,13 @@
           <li>
             <div class="degree">
               Research Intern,
-              <a href="https://hunyuan.tencent.com">Tencent Hunyuan</a>, X Center, World Model Team<br>
+              <a href="https://hunyuan.tencent.com">Tencent Hunyuan</a>, Video World Model Team<br>
             </div>
           </li>
           <li>
             <div class="degree">
               Research Intern,
-              <a href="https://hunyuan.tencent.com">Tencent Hunyuan</a>, 3D Center, World Model Team<br>
+              <a href="https://hunyuan.tencent.com">Tencent Hunyuan</a>, 3D Generation Team<br>
             </div>
           </li>
         </ul>
@@ -1583,6 +1617,14 @@
             <div class="date">2021</div>
           </li>
         </ul>
+      </div>
+
+      <!-- MapMyVisitors visitor map -->
+      <div class="clustrmaps-wrap">
+        <div class="cm-label">Visitors</div>
+        <div id="clustrmaps-container">
+          <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=R5hujKGXUexyzx2otvfmPNQAF02MTe55uPCltvlgPzM&cl=ffffff&w=a"></script>
+        </div>
       </div>
 
       <!-- Footer -->
