@@ -1,1668 +1,361 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
-  <title>Yifan Liu's Homepage</title>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,400,500,600,700">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css"
-    integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
-  <link rel="icon" href="images/dundun_trans2.png">
-
-  <style>
-    /* ============================================================
-       Academic Homepage — Professional Theme
-       Palette: ink #1a1a1a / body #2b2b2b / muted #6b6b6b
-                accent (deep blue) #0b4f8a / hairline #e6e6e6
-       Type:    Source Serif 4 (body)  +  Inter (UI / nav / chips)
-       ============================================================ */
-
-    :root {
-      --ink: #1a1a1a;
-      --body: #2b2b2b;
-      --muted: #6b6b6b;
-      --subtle: #8a8a8a;
-      --rule: #e6e6e6;
-      --rule-strong: #cfcfcf;
-      --accent: #0b4f8a;
-      --accent-hover: #083d6c;
-      --bg: #ffffff;
-      --bg-soft: #fafafa;
-      --serif: 'Source Serif 4', 'Charter', 'Iowan Old Style', 'Source Serif Pro', 'Noto Serif SC', Georgia, serif;
-      --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif;
-      --mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
-    }
-
-    html {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      text-rendering: optimizeLegibility;
-    }
-
-    body {
-      background-color: var(--bg);
-      padding: 0;
-      margin: 0;
-      font-family: var(--serif);
-      font-size: 16px;
-      line-height: 1.65;
-      color: var(--body);
-      font-weight: 400;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
-
-    a:hover {
-      color: var(--accent-hover);
-      text-decoration: underline;
-      text-underline-offset: 2px;
-      text-decoration-thickness: 1px;
-    }
-
-    .wrapper {
-      width: 1060px;
-      margin: 0 auto;
-    }
-
-    /* ----- Left sidebar header ----- */
-    header {
-      width: 250px;
-      float: left;
-      position: fixed;
-      padding-top: 5em;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .image {
-      border: 0;
-      display: inline-block;
-      position: relative;
-    }
-
-    .image.avatar {
-      border-radius: 50%;
-      margin: 0 0 1.2em 0;
-      width: 150px;
-      height: 150px;
-      overflow: hidden;
-      box-shadow: 0 0 0 1px var(--rule);
-    }
-
-    .image.avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    h1 {
-      font-family: var(--serif);
-      font-weight: 600;
-      color: var(--ink);
-      margin: 0 0 6px;
-      font-size: 24px;
-      letter-spacing: -0.01em;
-    }
-
-    .position {
-      font-family: var(--sans);
-      font-size: 13px;
-      color: var(--muted);
-      font-weight: 500;
-      margin-bottom: 4px;
-      letter-spacing: 0.01em;
-    }
-
-    .affiliation {
-      font-family: var(--sans);
-      color: var(--accent);
-      text-decoration: none;
-      margin-bottom: 10px;
-      display: inline-block;
-      font-size: 13px;
-      font-weight: 500;
-    }
-
-    .affiliation:hover {
-      color: var(--accent-hover);
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-
-    email {
-      display: inline-block;
-      margin-top: 4px;
-      font-size: 12.5px;
-      font-family: var(--mono);
-      color: var(--muted);
-      letter-spacing: -0.01em;
-    }
-
-    /* ----- Social icons ----- */
-    .social-icons {
-      margin: 14px 0 4px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 4px;
-    }
-
-    .social-icons a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      height: 32px;
-      width: 32px;
-      background-color: transparent;
-      color: var(--muted);
-      border-radius: 50%;
-      text-align: center;
-      font-size: 16px;
-      transition: color 0.15s ease, background-color 0.15s ease;
-    }
-
-    .social-icons a:hover {
-      color: var(--accent);
-      background-color: var(--bg-soft);
-      text-decoration: none;
-    }
-
-    /* ----- Research interests ----- */
-    .research-interests {
-      margin-top: 18px;
-      text-align: left;
-      font-family: var(--sans);
-      font-size: 13px;
-      line-height: 1.5;
-      padding: 16px 0 0;
-      width: 100%;
-      border-top: 1px solid var(--rule);
-    }
-
-    .research-interests p {
-      margin: 0 0 8px;
-      font-weight: 600;
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--subtle);
-    }
-
-    .research-interests ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .research-interests li {
-      margin: 0;
-      padding: 3px 0;
-      color: var(--body);
-      font-size: 13px;
-    }
-
-    .research-interests li::before {
-      content: "·";
-      color: var(--accent);
-      margin-right: 8px;
-      font-weight: 700;
-    }
-
-    /* ----- Main content ----- */
-    section {
-      width: 720px;
-      float: right;
-      padding-top: 2.5em;
-      padding-bottom: 60px;
-    }
-
-    /* ----- Section headers ----- */
-    h2 {
-      font-family: var(--serif);
-      color: var(--ink);
-      font-weight: 600;
-      margin: 36px 0 18px;
-      font-size: 20px;
-      letter-spacing: -0.005em;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    h2 a {
-      font-family: var(--sans);
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--muted);
-      margin-left: 6px;
-    }
-
-    h2 a:hover {
-      color: var(--accent);
-    }
-
-    /* ----- About section ----- */
-    .about-section {
-      margin-bottom: 32px;
-    }
-
-    .about-section p {
-      text-align: justify;
-      hyphens: auto;
-      margin: 0 0 14px;
-      font-size: 16px;
-      line-height: 1.7;
-      color: var(--body);
-    }
-
-    /* ----- News section ----- */
-    .news-section {
-      margin-bottom: 32px;
-    }
-
-    .news-scroll {
-      max-width: 100%;
-    }
-
-    .news-scroll-inner {
-      max-height: 240px;
-      overflow-y: auto;
-      padding: 4px 16px 4px 0;
-      scrollbar-width: thin;
-      scrollbar-color: var(--rule-strong) transparent;
-    }
-
-    .news-scroll-inner::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    .news-scroll-inner::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    .news-scroll-inner::-webkit-scrollbar-thumb {
-      background-color: var(--rule-strong);
-      border-radius: 3px;
-    }
-
-    .news-list {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .news-list li {
-      margin: 0;
-      padding: 7px 0;
-      font-size: 14.5px;
-      line-height: 1.55;
-      display: flex;
-      align-items: baseline;
-      gap: 14px;
-      border-bottom: 1px dotted var(--rule);
-    }
-
-    .news-list li:last-child {
-      border-bottom: none;
-    }
-
-    .news-list li strong {
-      font-family: var(--mono);
-      color: var(--muted);
-      font-weight: 500;
-      font-size: 12.5px;
-      min-width: 80px;
-      flex-shrink: 0;
-      letter-spacing: -0.02em;
-    }
-
-    .news-content {
-      flex: 1;
-      color: var(--body);
-    }
-
-    .news-content b {
-      color: var(--ink);
-      font-weight: 600;
-    }
-
-    /* ----- Education / generic list ----- */
-    .education-section {
-      margin-bottom: 32px;
-    }
-
-    .education-list {
-      list-style-type: none;
-      padding-left: 0;
-      margin: 0;
-    }
-
-    .education-list li {
-      margin: 0;
-      padding: 8px 0 8px 18px;
-      font-size: 15px;
-      line-height: 1.55;
-      position: relative;
-      display: block;
-      overflow: hidden;
-      border-bottom: 1px dotted var(--rule);
-    }
-
-    .education-list li:last-child {
-      border-bottom: none;
-    }
-
-    .education-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 18px;
-      width: 6px;
-      height: 6px;
-      background: var(--accent);
-      border-radius: 50%;
-    }
-
-    .education-list .degree {
-      float: left;
-      text-align: left;
-      color: var(--body);
-      width: 72%;
-    }
-
-    .education-list .date {
-      float: right;
-      text-align: right;
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 13px;
-      width: 26%;
-    }
-
-    .education-list::after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-
-    /* ----- Publications ----- */
-    .publications-section {
-      margin-bottom: 32px;
-    }
-
-    .publications-section > p {
-      margin: 0 0 18px;
-      font-size: 13px;
-      color: var(--muted);
-      font-style: italic;
-    }
-
-    .project-container {
-      width: 100%;
-      margin-bottom: 28px;
-      padding-bottom: 22px;
-      border-bottom: 1px solid var(--rule);
-      overflow: visible;
-    }
-
-    .project-container:last-child {
-      border-bottom: none;
-    }
-
-    .pub-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 0;
-      overflow: visible;
-    }
-
-    .pub-table td {
-      padding: 0;
-      vertical-align: top;
-    }
-
-    .pub-table .media-col {
-      width: 240px;
-      padding-right: 22px;
-      padding-top: 4px;
-      vertical-align: top;
-      text-align: center;
-      position: relative;
-      overflow: visible;
-    }
-
-    .pub-table .content-col {
-      vertical-align: top;
-    }
-
-    /* Unified 16:9 thumbnail; cover-crop so all cards visually align */
-    .project-media {
-      position: relative;
-      margin: 0 auto;
-      display: block;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border-radius: 4px;
-      overflow: hidden;
-      background: var(--bg-soft);
-      border: 1px solid var(--rule);
-      transition: border-color 0.2s ease;
-    }
-
-    .project-media:hover {
-      border-color: var(--rule-strong);
-    }
-
-    .project-media video,
-    .project-media img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 0 !important;
-    }
-
-    /* Conference badge: small, subtle, sits on top-left */
-    .media-col .conference-badge {
-      position: absolute;
-      top: 8px;
-      left: 8px;
-      z-index: 10;
-      background-color: rgba(255, 255, 255, 0.96) !important;
-      color: var(--accent) !important;
-      padding: 3px 8px !important;
-      border: 1px solid var(--rule-strong) !important;
-      border-radius: 3px !important;
-      font-family: var(--sans) !important;
-      font-size: 10.5px !important;
-      font-weight: 600 !important;
-      letter-spacing: 0.04em;
-      box-shadow: none !important;
-      white-space: nowrap;
-      line-height: 1.2 !important;
-      box-sizing: border-box;
-      display: inline-block !important;
-      vertical-align: baseline;
-      margin: 0;
-      min-width: auto;
-      max-width: none;
-      height: auto;
-      text-transform: uppercase;
-    }
-
-    .pub-title,
-    .pub-authors,
-    .pub-venue,
-    .pub-description {
-      margin: 0 !important;
-      padding: 0 !important;
-    }
-
-    .pub-title {
-      margin: 0 0 6px !important;
-      font-family: var(--serif);
-      font-size: 16.5px;
-      font-weight: 600;
-      line-height: 1.35;
-      letter-spacing: -0.005em;
-      color: var(--ink);
-    }
-
-    .pub-title a {
-      color: var(--ink);
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
-
-    .pub-title a:hover {
-      color: var(--accent) !important;
-      text-decoration: none;
-    }
-
-    .pub-authors {
-      margin-bottom: 4px !important;
-      color: var(--body);
-      font-family: var(--serif);
-      font-size: 14px;
-      line-height: 1.45;
-    }
-
-    .pub-authors strong {
-      color: var(--ink);
-      font-weight: 700;
-    }
-
-    .pub-venue {
-      margin-bottom: 8px !important;
-      font-family: var(--serif);
-      font-style: italic;
-      color: var(--muted);
-      font-size: 13.5px;
-      line-height: 1.4;
-    }
-
-    .pub-description {
-      margin-top: 8px !important;
-      color: var(--muted);
-      font-family: var(--serif);
-      font-size: 13.5px;
-      line-height: 1.55;
-      font-style: italic;
-    }
-
-    /* ----- Link buttons (Paper / Code / Project / Demo) ----- */
-    .text-links {
-      display: flex;
-      gap: 6px;
-      margin: 8px 0 4px 0 !important;
-      padding: 0 !important;
-      flex-wrap: wrap;
-    }
-
-    .text-btn {
-      background-color: transparent;
-      color: var(--accent);
-      padding: 2px 8px;
-      border: 1px solid var(--rule-strong);
-      border-radius: 3px;
-      text-decoration: none;
-      font-family: var(--sans);
-      font-size: 11.5px;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-      transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
-    }
-
-    .text-btn:hover {
-      color: #fff;
-      background-color: var(--accent);
-      border-color: var(--accent);
-      text-decoration: none;
-    }
-
-    /* GitHub star count badge appended to Code buttons */
-    .gh-star-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 3px;
-      margin-left: 6px;
-      padding-left: 6px;
-      border-left: 1px solid var(--rule-strong);
-      font-family: var(--mono);
-      font-size: 10.5px;
-      font-weight: 500;
-      color: var(--muted);
-      letter-spacing: -0.01em;
-      transition: color 0.15s ease, border-color 0.15s ease;
-    }
-
-    .gh-star-badge i {
-      font-size: 9.5px;
-      line-height: 1;
-    }
-
-    .text-btn:hover .gh-star-badge {
-      color: #fff;
-      border-left-color: rgba(255, 255, 255, 0.4);
-    }
-
-    /* ----- Experience images ----- */
-    .experience-section {
-      margin-bottom: 32px;
-    }
-
-    .experience-section img {
-      width: 100%;
-      max-width: 720px;
-      border-radius: 4px;
-      margin: 14px 0;
-      border: 1px solid var(--rule);
-      box-shadow: none;
-    }
-
-    /* ----- Back to top ----- */
-    .back-to-top {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      width: 40px;
-      height: 40px;
-      background-color: #fff;
-      border: 1px solid var(--rule-strong);
-      border-radius: 4px;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 1001;
-      transition: border-color 0.15s ease, background-color 0.15s ease;
-    }
-
-    .back-to-top:hover {
-      background-color: var(--accent);
-      border-color: var(--accent);
-    }
-
-    .back-to-top:hover i {
-      color: #fff;
-    }
-
-    .back-to-top i {
-      font-size: 13px;
-      color: var(--muted);
-      transition: color 0.15s ease;
-    }
-
-    .back-to-top.show {
-      display: flex !important;
-    }
-
-    @media screen and (min-width: 1061px) {
-      .back-to-top {
-        display: none;
-      }
-
-      .back-to-top.show {
-        display: flex !important;
-      }
-    }
-
-    /* ----- Dundun (kept, but more subtle) ----- */
-    .dundun-bg {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      opacity: 0.55;
-      z-index: 1000;
-      cursor: pointer;
-      min-width: 90px;
-      min-height: 90px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: opacity 0.2s ease;
-    }
-
-    .dundun-bg:hover {
-      opacity: 0.85;
-    }
-
-    .dundun-bg img {
-      width: 120px;
-      height: auto;
-    }
-
-    .dundun-message {
-      position: fixed;
-      bottom: 150px;
-      right: 40px;
-      background: #fff;
-      padding: 8px 12px;
-      border-radius: 4px;
-      max-width: 180px;
-      font-family: var(--sans);
-      font-size: 12px;
-      color: var(--body);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      z-index: 999;
-      border: 1px solid var(--rule-strong);
-      line-height: 1.5;
-    }
-
-    .dundun-message::after,
-    .dundun-message::before {
-      display: none;
-    }
-
-    /* ----- Top navigation ----- */
-    .mobile-nav {
-      display: block;
-      background-color: rgba(255, 255, 255, 0.92);
-      backdrop-filter: saturate(180%) blur(10px);
-      -webkit-backdrop-filter: saturate(180%) blur(10px);
-      border-bottom: 1px solid var(--rule);
-      padding: 14px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      margin-bottom: 0;
-    }
-
-    .mobile-nav-list {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      gap: 28px;
-      flex-wrap: nowrap;
-      white-space: nowrap;
-    }
-
-    .mobile-nav-item {
-      font-size: 13px;
-      flex-shrink: 0;
-    }
-
-    .mobile-nav-item a {
-      color: var(--ink);
-      text-decoration: none;
-      padding: 4px 2px;
-      font-family: var(--sans);
-      font-weight: 500;
-      font-size: 13px !important;
-      letter-spacing: 0.02em;
-      position: relative;
-      display: inline-block;
-      transition: color 0.15s ease;
-    }
-
-    .mobile-nav-item a:hover {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .mobile-nav-item a::after {
-      content: '';
-      position: absolute;
-      bottom: -16px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background-color: var(--accent);
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform 0.15s ease;
-    }
-
-    .mobile-nav-item a:hover::after {
-      transform: scaleX(1);
-    }
-
-    /* ----- Footer ----- */
-    footer {
-      text-align: center;
-      color: var(--subtle);
-      margin-top: 50px;
-      padding: 24px 0 0;
-      border-top: 1px solid var(--rule);
-      font-family: var(--sans);
-      font-size: 12px;
-    }
-
-    .visit-counter {
-      color: var(--subtle);
-      white-space: nowrap;
-    }
-
-    .visit-counter .fa-eye {
-      margin-right: 4px;
-      font-size: 11px;
-      opacity: 0.8;
-    }
-
-    .visit-count {
-      font-family: var(--mono);
-      font-weight: 500;
-      color: var(--accent);
-      font-variant-numeric: tabular-nums;
-    }
-
-    /* Smooth anchor scrolling */
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 70px;
-    }
-
-    /* ----- Cursor hint on hoverable thumbnails ----- */
-    .project-media {
-      cursor: zoom-in;
-    }
-
-    /* ============================================================
-       Hover preview — small floating popup near the thumbnail.
-       Keeps original aspect ratio, ~2x size of the thumbnail.
-       ============================================================ */
-    .media-preview {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 9998;
-      background: #fff;
-      border: 1px solid var(--rule-strong);
-      border-radius: 6px;
-      padding: 4px;
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18), 0 4px 12px rgba(0, 0, 0, 0.08);
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transform: scale(0.96);
-      transform-origin: center center;
-      transition: opacity 0.15s ease, transform 0.15s ease, visibility 0s linear 0.15s;
-    }
-
-    .media-preview.show {
-      opacity: 1;
-      visibility: visible;
-      transform: scale(1);
-      transition: opacity 0.15s ease, transform 0.15s ease;
-    }
-
-    .media-preview-frame {
-      display: block;
-      overflow: hidden;
-      border-radius: 3px;
-      background: #000;
-      line-height: 0;
-    }
-
-    .media-preview-frame img,
-    .media-preview-frame video {
-      display: block;
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-    }
-
-    /* Disable hover preview on touch devices / small screens */
-    @media (hover: none), (max-width: 1060px) {
-      .project-media {
-        cursor: default;
-      }
-
-      .media-preview {
-        display: none !important;
-      }
-    }
-
-    /* ============================================================
-       Mobile / responsive
-       ============================================================ */
-    @media print, screen and (max-width: 1060px) {
-      body {
-        font-size: 15.5px;
-      }
-
-      .wrapper {
-        width: auto;
-        margin: 0;
-      }
-
-      header,
-      section {
-        float: none;
-        position: static;
-        width: auto;
-      }
-
-      .mobile-nav {
-        padding: 10px 12px;
-      }
-
-      .mobile-nav-list {
-        gap: 22px;
-        justify-content: space-evenly;
-      }
-
-      .mobile-nav-item a {
-        font-size: 12.5px !important;
-      }
-
-      .mobile-nav-item a::after {
-        bottom: -12px;
-      }
-
-      header {
-        padding: 28px 20px 12px;
-        text-align: center;
-      }
-
-      section {
-        padding: 0 22px 60px;
-      }
-
-      h2 {
-        margin-top: 28px;
-      }
-
-      /* Stack pub layout on mobile */
-      .pub-table,
-      .pub-table tbody,
-      .pub-table tr {
-        display: block;
-      }
-
-      .pub-table .media-col {
-        display: block;
-        width: 100%;
-        padding: 0 0 12px 0;
-        text-align: center;
-      }
-
-      .pub-table .content-col {
-        width: 100%;
-        display: block;
-      }
-
-      .project-media {
-        display: block;
-        position: relative;
-        width: 100%;
-        max-width: 420px;
-        margin: 0 auto;
-      }
-
-      .media-col .conference-badge {
-        position: absolute;
-        top: 8px;
-        left: 8px;
-        display: inline-block !important;
-        margin: 0;
-      }
-
-      /* Hide research interests panel on mobile */
-      .research-interests {
-        display: none;
-      }
-
-      /* Stack education list on mobile */
-      .education-list li {
-        padding: 10px 0 10px 16px;
-      }
-
-      .education-list .degree,
-      .education-list .date {
-        float: none;
-        display: block;
-        width: 100%;
-        text-align: left;
-      }
-
-      .education-list .date {
-        margin-top: 2px;
-      }
-
-      /* Dundun on mobile */
-      .dundun-bg {
-        bottom: 14px;
-        right: 14px;
-        opacity: 0.6;
-        min-width: 70px;
-        min-height: 70px;
-      }
-
-      .dundun-bg img {
-        width: 76px;
-      }
-
-      .dundun-message {
-        position: fixed;
-        bottom: 38px;
-        left: 14px;
-        right: 100px;
-        max-width: none;
-        font-size: 11px;
-        display: none;
-      }
-
-      .dundun-message.show {
-        display: block !important;
-      }
-
-      .back-to-top,
-      .back-to-top.show {
-        display: none !important;
-        visibility: hidden !important;
-      }
-
-      .text-btn {
-        padding: 4px 10px !important;
-        font-size: 12px !important;
-      }
-
-      video {
-        width: 100% !important;
-      }
-    }
-  </style>
+  <meta name="description" content="Academic homepage of Yifan Liu">
+  <title>Yifan Liu</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+  <link rel="stylesheet" href="stylesheet.css">
 </head>
-
 <body>
-  <div class="wrapper">
-    <!-- Navigation -->
-    <nav class="mobile-nav">
-      <ul class="mobile-nav-list">
-        <li class="mobile-nav-item"><a href="#about">About</a></li>
-        <li class="mobile-nav-item"><a href="#news">News</a></li>
-        <li class="mobile-nav-item"><a href="#experience">Experience</a></li>
-        <li class="mobile-nav-item"><a href="#open-source">Projects</a></li>
-        <li class="mobile-nav-item"><a href="#projects">Publications</a></li>
-      </ul>
-    </nav>
-
-    <!-- Left Sidebar Header -->
-    <header>
-      <a class="image avatar">
-        <img src="pic/YIFANLIU.PNG" alt="Yifan Liu" />
+  <header class="site-header">
+    <div class="nav-wrapper">
+      <a class="menu-toggle" href="#site-menu" aria-label="Open navigation" aria-controls="site-menu">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
       </a>
+      <nav id="site-menu" class="site-nav" aria-label="Primary navigation">
+        <a href="#about"><b>About</b></a>
+        <a href="#education"><b>Education</b></a>
+        <a href="#experience"><b>Experience</b></a>
+        <a href="#open-source"><b>Projects</b></a>
+        <a href="#projects"><b>Publications</b></a>
+        <a href="#awards"><b>Honors</b></a>
+        <a href="#activities"><b>Service</b></a>
+        <a href="#miscellaneous"><b>Miscellaneous</b></a>
+      </nav>
+    </div>
+  </header>
 
-      <h1>Yifan Liu</h1>
-
-      <div class="position">Ph.D. Candidate</div>
-
-      <a href="https://www.cuhk.edu.hk/" class="affiliation" rel="noopener">Chinese University of Hong Kong</a>
-
-      <email>liuyifan365[at]gmail.com</email>
-
-      <div class="social-icons">
-        <a href="https://scholar.google.com/citations?hl=zh-CN&user=Uv7f-HMAAAAJ" title="Google Scholar">
-          <i class="ai ai-google-scholar"></i>
-        </a>
-        <a href="https://github.com/yifliu3" title="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="mailto:liuyifan365@gmail.com" title="Email">
-          <i class="fa fa-envelope"></i>
-        </a>
+  <section class="profile-cover" aria-label="Profile">
+    <div class="profile-card">
+      <img class="profile-avatar" src="pic/YIFANLIU.PNG" alt="Portrait of Yifan Liu">
+      <div class="profile-identity">
+        <h1>Yifan Liu</h1>
+        <p class="profile-title">Ph.D. Candidate @ CUHK</p>
+        <p class="profile-email">liuyifan365[at]gmail.com</p>
+        <div class="social-links" aria-label="Profile links">
+          <a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=Uv7f-HMAAAAJ" aria-label="Google Scholar">
+            <i class="ai ai-google-scholar" aria-hidden="true"></i>
+          </a>
+          <a href="https://github.com/yifliu3" aria-label="GitHub">
+            <i class="fa-brands fa-github" aria-hidden="true"></i>
+          </a>
+          <a href="mailto:liuyifan365@gmail.com" aria-label="Email">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          </a>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="research-interests">
-        <p>Research Interests:</p>
-        <ul>
-          <li>Video/3D World Model</li>
-          <li>3D Reconstruction</li>
-          <li>Generative AI</li>
-        </ul>
-      </div>
-    </header>
-
-    <!-- Main Content Section -->
-    <section>
-      <!-- About Section -->
-      <h2 id="about">About</h2>
-      <div class="about-section">
+  <main class="content-wrapper">
+    <section id="about" class="content-section" aria-labelledby="about-heading">
+      <h2 id="about-heading" class="section-heading">
+        <i class="fa-solid fa-id-card" aria-hidden="true"></i> About
+      </h2>
+      <div class="about-body">
         <p>
           I am a final-year Ph.D. student in the Department of Electronic Engineering at the
           Chinese University of Hong Kong <a href="https://www.cuhk.edu.hk/">(CUHK)</a>, supervised by
-          <a href="https://www.ee.cuhk.edu.hk/~yxyuan/" target="_blank">Prof. Yixuan Yuan</a>.
+          <a href="https://www.ee.cuhk.edu.hk/~yxyuan/">Prof. Yixuan Yuan</a>.
           Prior to that, I received my B.Eng. in Electronic Information Engineering from
           Huazhong University of Science and Technology <a href="http://english.hust.edu.cn/">(HUST)</a> in 2021.
           During my Ph.D., I have been fortunate to work with
           <a href="https://zhenwwang.github.io/">Dr. Zhenwei Wang</a> and
           <a href="https://tengfei-wang.github.io/">Dr. Tengfei Wang</a> at the
-          <a href="https://hunyuan.tencent.com">Tencent Hunyuan</a> 3D Generation Team.
+          <a href="https://hunyuan.tencent.com">Tencent HY</a> 3D Generation Team.
+          I have also been fortunate to collaborate with industry, particularly with Tencent HY and ByteDance Seed.
         </p>
-      </div>
-
-      <!-- News Section -->
-      <h2 id="news">News</h2>
-      <div class="news-section">
-        <div class="news-scroll">
-          <div class="news-scroll-inner">
-            <ul class="news-list">
-              <li>
-                <strong>[05/2026]</strong>
-                <span class="news-content">I passed my <b>Ph.D. defense</b>!</span>
-              </li>
-              <li>
-                <strong>[04/2026]</strong>
-                <span class="news-content">Our paper <b>WorldMirror</b> is accepted by <b>ICML 2026</b>!</span>
-              </li>
-              <li>
-                <strong>[10/2025]</strong>
-                <span class="news-content">Our work <b>WorldMirror</b> is released. Check it out!</span>
-              </li>
-              <li>
-                <strong>[02/2025]</strong>
-                <span class="news-content">Our paper <b>MonoSplat</b> is accepted by CVPR'25.</span>
-              </li>
-              <li>
-                <strong>[02/2025]</strong>
-                <span class="news-content">Our paper <b>EndoGaussian</b> is accepted by TMI'25.</span>
-              </li>
-              <li>
-                <strong>[01/2025]</strong>
-                <span class="news-content">Our paper <b>InstantSplamp</b> is accepted by ICLR'25. Congrats to Chenxin and Hengyu.</span>
-              </li>
-              <li>
-                <strong>[01/2025]</strong>
-                <span class="news-content">Our paper <b>Hide-in-Motion</b> is accepted by ICRA'25. Congrats to Hengyu.</span>
-              </li>
-              <li>
-                <strong>[12/2024]</strong>
-                <span class="news-content">Our paper <b>U-KAN</b> is accepted by AAAI'25. Congrats to Chenxin.</span>
-              </li>
-              <li>
-                <strong>[06/2024]</strong>
-                <span class="news-content">Our <b>LGS</b>, <b>Endora</b>, and <b>EndoSparse</b> are accepted by MICCAI'24. Congrats to Hengyu and Chenxin.</span>
-              </li>
-              <li>
-                <strong>[05/2024]</strong>
-                <span class="news-content">Our paper <b>SAMTooth</b> is accepted by MICCAI'24 (early accept, 11%).</span>
-              </li>
-              <li>
-                <strong>[03/2023]</strong>
-                <span class="news-content">Our paper <b>GRAB-Net</b> is accepted by IEEE TMI'23. (IF. 11.037).</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Experience Section -->
-      <h2 id="experience">Experience</h2>
-      <div class="education-section">
-        <ul class="education-list">
-          <li>
-            <div class="degree">
-              Research Intern,
-              <a href="https://hunyuan.tencent.com">Tencent Hunyuan</a>, Video World Model Team<br>
-            </div>
-          </li>
-          <li>
-            <div class="degree">
-              Research Intern,
-              <a href="https://hunyuan.tencent.com">Tencent Hunyuan</a>, 3D Generation Team<br>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <!-- Open-Source Projects Section -->
-      <h2 id="open-source">Open-Source Projects</h2>
-      <div class="publications-section">
-        <!-- HY-World 1.1 -->
-        <div class="project-container">
-          <table class="pub-table">
-            <tbody>
-              <tr>
-                <td class="media-col">
-                  <div class="project-media">
-                    <video width="100%" autoplay muted loop playsinline>
-                      <source src="vid/HYWorld1.1.mp4" type="video/mp4">
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                </td>
-                <td class="content-col">
-                  <h4 class="pub-title">HY-World 1.1</h4>
-                  <p class="pub-authors">Core Contributor, 2025</p>
-                  <div class="text-links">
-                    <a href="https://github.com/Tencent-Hunyuan/HunyuanWorld-Mirror" class="text-btn" target="_blank" rel="noopener" data-no-stars="true">Code</a>
-                    <a href="https://3d-models.hunyuan.tencent.com/world/" class="text-btn" target="_blank" rel="noopener">Project Page</a>
-                    <a href="https://huggingface.co/spaces/tencent/HunyuanWorld-Mirror" class="text-btn" target="_blank" rel="noopener">Try it now</a>
-                  </div>
-                  <p class="pub-description">
-                    A 3D world reconstruction framework capable of producing immersive, explorable, and interactive scenes from arbitrary-view inputs.
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Publications Section -->
-      <h2 id="projects">
-        Selected Publications
-        <a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=Uv7f-HMAAAAJ">[full list]</a>
-      </h2>
-      <div class="publications-section">
-        <p>(*equal contribution)</p>
-        <!-- WorldMirror Paper -->
-        <div class="project-container">
-          <table class="pub-table">
-            <tbody>
-              <tr>
-                <td class="media-col">
-                  <div class="conference-badge">ICML 2026</div>
-                  <div class="project-media">
-                    <video width="100%" autoplay muted loop playsinline>
-                      <source src="vid/WorldMirror.mp4" type="video/mp4">
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                </td>
-                <td class="content-col">
-                  <h4 class="pub-title">
-                    <a href="https://arxiv.org/abs/2510.10726">
-                        WorldMirror: Universal 3D World Reconstruction with Any-Prior Prompting
-                    </a>
-                  </h4>
-                  <p class="pub-authors">
-                    <strong>Yifan Liu*</strong>,
-                    Zhiyuan Min*,
-                    Zhenwei Wang*,
-                    Junta Wu,
-                    Tengfei Wang,
-                    Yixuan Yuan,
-                    Yawei Luo,
-                    Chunchao Guo
-                  </p>
-                  <p class="pub-venue">International Conference on Machine Learning (ICML 2026)</p>
-                  <div class="text-links">
-                    <a href="https://arxiv.org/abs/2510.10726" class="text-btn">Paper</a>
-                    <a href="https://github.com/Tencent-Hunyuan/HunyuanWorld-Mirror" class="text-btn">Code</a>
-                    <a href="https://3d-models.hunyuan.tencent.com/world/" class="text-btn">Project Page</a>
-                    <a href="https://huggingface.co/spaces/tencent/HunyuanWorld-Mirror" class="text-btn">Try it now</a>
-                  </div>
-                  <p class="pub-description">
-                    A universal 3D reconstruction framework capable of processing diverse input modalities and generating various output representations.
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- MonoSplat Paper -->
-        <div class="project-container">
-          <table class="pub-table">
-            <tbody>
-              <tr>
-                <td class="media-col">
-                  <div class="conference-badge">CVPR 2025</div>
-                  <div class="project-media">
-                    <video width="100%" autoplay muted loop playsinline>
-                      <source src="vid/MonoSplat.mp4" type="video/mp4">
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                </td>
-                <td class="content-col">
-                  <h4 class="pub-title">
-                    <a href="http://arxiv.org/abs/2505.15185">
-                      MonoSplat: Generalizable 3D Gaussian Splatting from Monocular Depth Foundation Models
-                    </a>
-                  </h4>
-
-                  <p class="pub-authors">
-                    <strong>Yifan Liu</strong>,
-                    Keyu Fan,
-                    Weihao Yu,
-                    Chenxin Li,
-                    Hao LU,
-                    Yixuan Yuan
-                  </p>
-
-                  <p class="pub-venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR 2025)</p>
-
-                  <div class="text-links">
-                    <a href="http://arxiv.org/abs/2505.15185" class="text-btn">Paper</a>
-                    <a href="https://github.com/CUHK-AIM-Group/MonoSplat" class="text-btn">Code</a>
-                  </div>
-                  <p class="pub-description">
-                    A generalizable 3D Gaussian Splatting approach from monocular depth foundation models.
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- InstantSplamp Paper -->
-        <div class="project-container">
-          <table class="pub-table">
-            <tbody>
-              <tr>
-                <td class="media-col">
-                  <div class="conference-badge">ICLR 2025</div>
-                  <div class="project-media">
-                    <img src="pic/instantsplamp.png" width="100%" alt="InstantSplamp Paper">
-                  </div>
-                </td>
-                <td class="content-col">
-                  <h4 class="pub-title">
-                    <a href="https://gaussian-stego.github.io/">
-                      InstantSplamp: Fast and Generalizable Stenography Framework for Generative Gaussian Splatting
-                    </a>
-                  </h4>
-
-                  <p class="pub-authors">
-                    Chenxin Li*,
-                    Hengyu Liu*,
-                    Zhiwen Fan,
-                    Wuyang Li,
-                    <strong>Yifan Liu</strong>,
-                    Panwang Pan,
-                    Yixuan Yuan
-                  </p>
-
-                  <p class="pub-venue">International Conference on Learning Representations (ICLR 2025)</p>
-
-                  <div class="text-links">
-                    <a href="https://arxiv.org/abs/2407.01301" class="text-btn">Paper</a>
-                    <a href="https://github.com/CUHK-AIM-Group/GaussianStego" class="text-btn">Code</a>
-                    <a href="https://gaussian-stego.github.io/" class="text-btn">Project Page</a>
-                  </div>
-                  <p class="pub-description">
-                    An initial exploration into embedding customizable, imperceptible, and recoverable information within the renders produced by off-the-line 3D generative models, while ensuring minimal impact on the rendered content's quality.
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Foundation Model-guided Gaussian Splatting Paper -->
-        <div class="project-container">
-            <table class="pub-table">
-              <tbody>
-                <tr>
-                  <td class="media-col">
-                    <div class="conference-badge">IEEE TMI 2025</div>
-                    <div class="project-media">
-                      <img src="pic/IMG_EndoGaussianJ.PNG" width="100%" alt="Foundation Model-guided Gaussian Splatting Paper">
-                    </div>
-                  </td>
-                  <td class="content-col">
-                    <h4 class="pub-title">
-                      <a href="https://ieeexplore.ieee.org/document/10902412">
-                        Foundation Model-guided Gaussian Splatting for 4D Reconstruction of Deformable Tissues
-                      </a>
-                    </h4>
-  
-                    <p class="pub-authors">
-                      <strong>Yifan Liu</strong>,
-                      Chenxin Li,
-                      Hengyu Liu,
-                      Chen Yang,
-                      Yixuan Yuan
-                    </p>
-  
-                    <p class="pub-venue">IEEE Transactions on Medical Imaging (IEEE TMI), 2025</p>
-  
-                      <div class="text-links">
-                        <a href="https://ieeexplore.ieee.org/document/10902412" class="text-btn">Paper</a>
-                        <a href="https://github.com/CUHK-AIM-Group/EndoGaussian" class="text-btn">Code</a>
-                        <a href="https://yifliu3.github.io/EndoGaussian/" class="text-btn">Project Page</a>
-                      </div>
-                    <p class="pub-description">
-                      The first work to apply 3D Gaussian Splatting for dynamic (4D) endoscopic reconstruction, guided by foundation models.
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-        <!-- U-KAN Paper -->
-        <div class="project-container">
-          <table class="pub-table">
-            <tbody>
-              <tr>
-                <td class="media-col">
-                  <div class="conference-badge">AAAI 2025</div>
-                  <div class="project-media">
-                    <img src="pic/IMG_ukan.jpg" width="100%" alt="U-KAN Paper">
-                  </div>
-                </td>
-                <td class="content-col">
-                  <h4 class="pub-title">
-                    <a href="https://arxiv.org/abs/2406.02918" target="_blank" rel="noopener">
-                      U-KAN Makes Strong Backbone for Medical Image Segmentation and Generation
-                    </a>
-                  </h4>
-
-                  <p class="pub-authors">
-                    Chenxin Li, Xinyu Liu, Wuyang Li, Cheng Wang, Hengyu Liu,
-                    <strong>Yifan Liu</strong>, Zhen Chen, Yixuan Yuan
-                  </p>
-
-                  <p class="pub-venue">AAAI Conference on Artificial Intelligence (AAAI 2025)</p>
-
-                  <div class="text-links">
-                    <a href="https://arxiv.org/abs/2406.02918" class="text-btn" target="_blank" rel="noopener">Paper</a>
-                    <a href="https://github.com/CUHK-AIM-Group/U-KAN" class="text-btn" target="_blank" rel="noopener">Code</a>
-                    <a href="https://yes-u-kan.github.io/" class="text-btn" target="_blank" rel="noopener">Project Page</a>
-                  </div>
-                  <p class="pub-description">
-                    Introducing Kolmogorov-Arnold Networks (KANs) as a strong backbone for medical image segmentation and generation.
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- GaussianReg Paper -->
-        <div class="project-container">
-          <table class="pub-table">
-            <tbody>
-              <tr>
-                <td class="media-col">
-                  <div class="conference-badge">ICCV 2025</div>
-                  <div class="project-media">
-                    <img src="pic/IMG_gaussianreg.png" width="100%" alt="GaussianReg Paper">
-                  </div>
-                </td>
-                <td class="content-col">
-                  <h4 class="pub-title">
-                    <a href="https://openaccess.thecvf.com/content/ICCV2025/html/Yu_GaussianReg_Rapid_2D3D_Registration_for_Emergency_Surgery_via_Explicit_3D_ICCV_2025_paper.html" target="_blank" rel="noopener">
-                      GaussianReg: Rapid 2D/3D Registration for Emergency Surgery via Explicit 3D Modeling with Gaussian Primitives
-                    </a>
-                  </h4>
-
-                  <p class="pub-authors">
-                    Weihao Yu, Xiaoqing Guo, Xinyu Liu,
-                    <strong>Yifan Liu</strong>, Haonan Zheng, Yawen Huang, Yixuan Yuan
-                  </p>
-
-                  <p class="pub-venue">IEEE/CVF International Conference on Computer Vision (ICCV 2025)</p>
-
-                  <div class="text-links">
-                    <a href="https://openaccess.thecvf.com/content/ICCV2025/html/Yu_GaussianReg_Rapid_2D3D_Registration_for_Emergency_Surgery_via_Explicit_3D_ICCV_2025_paper.html" class="text-btn" target="_blank" rel="noopener">Paper</a>
-                    <a href="https://github.com/CUHK-AIM-Group/GaussianReg" class="text-btn" target="_blank" rel="noopener">Code</a>
-                  </div>
-                  <p class="pub-description">
-                    Rapid 2D/3D registration for emergency surgery using sparse Gaussian primitives and a ray-based registration scheme.
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- GTP-4o Paper -->
-        <div class="project-container">
-          <table class="pub-table">
-            <tbody>
-              <tr>
-                <td class="media-col">
-                  <div class="conference-badge">ECCV 2024</div>
-                  <div class="project-media">
-                    <img src="pic/IMG_gtp4o.png" width="100%" alt="GTP-4o Paper">
-                  </div>
-                </td>
-                <td class="content-col">
-                  <h4 class="pub-title">
-                    <a href="https://arxiv.org/abs/2407.05540" target="_blank" rel="noopener">
-                      GTP-4o: Modality-prompted Heterogeneous Graph Learning for Omni-modal Biomedical Representation
-                    </a>
-                  </h4>
-
-                  <p class="pub-authors">
-                    Chenxin Li, Xinyu Liu, Cheng Wang,
-                    <strong>Yifan Liu</strong>, Weihao Yu, Jing Shao, Yixuan Yuan
-                  </p>
-
-                  <p class="pub-venue">European Conference on Computer Vision (ECCV 2024)</p>
-
-                  <div class="text-links">
-                    <a href="https://arxiv.org/abs/2407.05540" class="text-btn" target="_blank" rel="noopener">Paper</a>
-                    <a href="https://gtp4-o.github.io/" class="text-btn" target="_blank" rel="noopener">Project Page</a>
-                  </div>
-                  <p class="pub-description">
-                    A heterogeneous graph framework for unified omni-modal biomedical representation that handles missing modalities.
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- FedPD Paper -->
-        <div class="project-container">
-          <table class="pub-table">
-            <tbody>
-              <tr>
-                <td class="media-col">
-                  <div class="conference-badge">ICCV 2023</div>
-                  <div class="project-media">
-                    <img src="pic/IMG_fedpd.png" width="100%" alt="FedPD Paper">
-                  </div>
-                </td>
-                <td class="content-col">
-                  <h4 class="pub-title">
-                    <a href="https://openaccess.thecvf.com/content/ICCV2023/html/Yang_FedPD_Federated_Open_Set_Recognition_with_Parameter_Disentanglement_ICCV_2023_paper.html" target="_blank" rel="noopener">
-                      FedPD: Federated Open Set Recognition with Parameter Disentanglement
-                    </a>
-                  </h4>
-
-                  <p class="pub-authors">
-                    Chen Yang, Meilu Zhu,
-                    <strong>Yifan Liu</strong>, Yixuan Yuan
-                  </p>
-
-                  <p class="pub-venue">IEEE/CVF International Conference on Computer Vision (ICCV 2023)</p>
-
-                  <div class="text-links">
-                    <a href="https://openaccess.thecvf.com/content/ICCV2023/html/Yang_FedPD_Federated_Open_Set_Recognition_with_Parameter_Disentanglement_ICCV_2023_paper.html" class="text-btn" target="_blank" rel="noopener">Paper</a>
-                  </div>
-                  <p class="pub-description">
-                    A federated open-set recognition framework with parameter disentanglement for cross-client closed/open-set learning.
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-      </div>
-
-      <!-- Professional Activities Section -->
-      <h2>Professional Activities</h2>
-      <div class="education-section">
-        <ul class="education-list">
-          <li>
-            <div class="degree">Conference Reviewer: NeurIPS, ICLR, ICML, CVPR, ICCV, ECCV, AAAI</div>
-            <div class="date"></div>
-          </li>
-          <li>
-            <div class="degree">Journal Reviewer: TPAMI, TIP, TVCG, TMM, TCSVT, TMI, MIA</div>
-            <div class="date"></div>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Awards Section -->
-      <h2>Selected Awards</h2>
-      <div class="education-section">
-        <ul class="education-list">
-          <li>
-            <div class="degree">Self-Reliance Scholarship</div>
-            <div class="date">2019-2020</div>
-          </li>
-          <li>
-            <div class="degree">Scholarship of Academic Excellence</div>
-            <div class="date">2017-2020</div>
-          </li>
-          <li>
-            <div class="degree">Outstanding Graduates of Huazhong University of Science and Technology</div>
-            <div class="date">2021</div>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Footer -->
-      <footer>
         <p>
-          © Yifan Liu &middot; Last updated: May 2026
-          <span class="visit-counter" id="visitCounter" hidden>
-            &middot; <i class="fa fa-eye" aria-hidden="true"></i>
-            <span class="visit-count" id="visitCount">--</span> visits this month
-          </span>
+          My research focuses on video and 3D world models, 3D reconstruction, and generative AI,
+          with an emphasis on building generalizable systems for immersive and interactive world
+          understanding and generation.
         </p>
-      </footer>
+        <p>
+          I'm always open to related discussions and collaborations. If you are interested in my
+          work, please feel free to <a href="mailto:liuyifan365@gmail.com">contact me</a>.
+        </p>
+      </div>
     </section>
+
+    <section id="education" class="content-section" aria-labelledby="education-heading">
+      <h2 id="education-heading" class="section-heading">
+        <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Education
+      </h2>
+      <div class="education-list">
+        <article class="education-item">
+          <div class="education-logo education-logo-cuhk">
+            <img src="images/education/cuhk.png" alt="The Chinese University of Hong Kong logo">
+          </div>
+          <div class="education-content">
+            <h3>Ph.D. in Electronic Engineering</h3>
+            <p class="education-school">
+              <a href="https://www.cuhk.edu.hk/">The Chinese University of Hong Kong (CUHK)</a>, 2021–2026
+            </p>
+            <p class="education-detail">Advisor: <a href="https://www.ee.cuhk.edu.hk/~yxyuan/">Prof. Yixuan Yuan</a></p>
+          </div>
+        </article>
+        <article class="education-item">
+          <div class="education-logo">
+            <img src="images/education/hust.png" alt="Huazhong University of Science and Technology logo">
+          </div>
+          <div class="education-content">
+            <h3>B.Eng. in Electronic Information Engineering</h3>
+            <p class="education-school">
+              <a href="https://www.hust.edu.cn/">Huazhong University of Science and Technology (HUST)</a>, 2017–2021
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="content-section" aria-labelledby="experience-heading">
+      <h2 id="experience-heading" class="section-heading">
+        <i class="fa-solid fa-briefcase" aria-hidden="true"></i> Experience
+      </h2>
+      <ul class="simple-list">
+        <li><strong>Research Intern</strong>, <a href="https://hunyuan.tencent.com">Tencent HY</a>, Video World Model Team</li>
+        <li><strong>Research Intern</strong>, <a href="https://hunyuan.tencent.com">Tencent HY</a>, 3D Generation Team</li>
+      </ul>
+    </section>
+
+    <section id="open-source" class="content-section" aria-labelledby="open-source-heading">
+      <h2 id="open-source-heading" class="section-heading">
+        <i class="fa-solid fa-cubes" aria-hidden="true"></i> Open-Source Projects
+      </h2>
+      <div class="project-list">
+        <article class="project-card">
+          <div class="project-media">
+            <video autoplay muted loop playsinline>
+              <source src="vid/HYWorld1.1.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="project-content">
+            <h3 class="publication-title">HY-World 1.1</h3>
+            <p class="publication-authors">Core Contributor, 2025</p>
+            <div class="resource-links">
+              <a class="resource-link" href="https://github.com/Tencent-Hunyuan/HunyuanWorld-Mirror" data-no-stars="true">Code</a>
+              <a class="resource-link" href="https://3d-models.hunyuan.tencent.com/world/">Project Page</a>
+              <a class="resource-link" href="https://huggingface.co/spaces/tencent/HunyuanWorld-Mirror">Try it now</a>
+            </div>
+            <p class="publication-description">A 3D world reconstruction framework capable of producing immersive, explorable, and interactive scenes from arbitrary-view inputs.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="content-section" aria-labelledby="projects-heading">
+      <h2 id="projects-heading" class="section-heading">
+        <i class="fa-solid fa-file-lines" aria-hidden="true"></i> Selected Publications
+        <a class="heading-link" href="https://scholar.google.com/citations?hl=zh-CN&amp;user=Uv7f-HMAAAAJ">[full list]</a>
+      </h2>
+      <p class="section-note">(*equal contribution)</p>
+      <div class="project-list">
+        <article class="project-card">
+          <div class="project-media">
+            <video autoplay muted loop playsinline>
+              <source src="vid/WorldMirror.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="project-content">
+            <h3 class="publication-title"><a href="https://arxiv.org/abs/2510.10726">WorldMirror: Universal 3D World Reconstruction with Any-Prior Prompting</a></h3>
+            <p class="publication-authors"><strong>Yifan Liu*</strong>, Zhiyuan Min*, Zhenwei Wang*, Junta Wu, Tengfei Wang, Yixuan Yuan, Yawei Luo, Chunchao Guo</p>
+            <div class="resource-links">
+              <a class="resource-link" href="https://arxiv.org/abs/2510.10726">Paper</a>
+              <a class="resource-link" href="https://github.com/Tencent-Hunyuan/HunyuanWorld-Mirror">Code</a>
+              <a class="resource-link" href="https://3d-models.hunyuan.tencent.com/world/">Project Page</a>
+              <a class="resource-link" href="https://huggingface.co/spaces/tencent/HunyuanWorld-Mirror">Try it now</a>
+              <p class="publication-venue">ICML 2026</p>
+            </div>
+            <p class="publication-description">A universal 3D reconstruction framework capable of processing diverse input modalities and generating various output representations.</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-media">
+            <video autoplay muted loop playsinline>
+              <source src="vid/MonoSplat.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="project-content">
+            <h3 class="publication-title"><a href="http://arxiv.org/abs/2505.15185">MonoSplat: Generalizable 3D Gaussian Splatting from Monocular Depth Foundation Models</a></h3>
+            <p class="publication-authors"><strong>Yifan Liu</strong>, Keyu Fan, Weihao Yu, Chenxin Li, Hao LU, Yixuan Yuan</p>
+            <div class="resource-links">
+              <a class="resource-link" href="http://arxiv.org/abs/2505.15185">Paper</a>
+              <a class="resource-link" href="https://github.com/CUHK-AIM-Group/MonoSplat">Code</a>
+              <p class="publication-venue">CVPR 2025</p>
+            </div>
+            <p class="publication-description">A generalizable 3D Gaussian Splatting approach from monocular depth foundation models.</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-media">
+            <img src="pic/instantsplamp.png" alt="InstantSplamp method overview">
+          </div>
+          <div class="project-content">
+            <h3 class="publication-title"><a href="https://gaussian-stego.github.io/">InstantSplamp: Fast and Generalizable Stenography Framework for Generative Gaussian Splatting</a></h3>
+            <p class="publication-authors">Chenxin Li*, Hengyu Liu*, Zhiwen Fan, Wuyang Li, <strong>Yifan Liu</strong>, Panwang Pan, Yixuan Yuan</p>
+            <div class="resource-links">
+              <a class="resource-link" href="https://arxiv.org/abs/2407.01301">Paper</a>
+              <a class="resource-link" href="https://github.com/CUHK-AIM-Group/GaussianStego">Code</a>
+              <a class="resource-link" href="https://gaussian-stego.github.io/">Project Page</a>
+              <p class="publication-venue">ICLR 2025</p>
+            </div>
+            <p class="publication-description">An initial exploration into embedding customizable, imperceptible, and recoverable information within the renders produced by off-the-line 3D generative models, while ensuring minimal impact on the rendered content's quality.</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-media">
+            <img src="pic/IMG_EndoGaussianJ.PNG" alt="EndoGaussian reconstruction overview">
+          </div>
+          <div class="project-content">
+            <h3 class="publication-title"><a href="https://ieeexplore.ieee.org/document/10902412">Foundation Model-guided Gaussian Splatting for 4D Reconstruction of Deformable Tissues</a></h3>
+            <p class="publication-authors"><strong>Yifan Liu</strong>, Chenxin Li, Hengyu Liu, Chen Yang, Yixuan Yuan</p>
+            <div class="resource-links">
+              <a class="resource-link" href="https://ieeexplore.ieee.org/document/10902412">Paper</a>
+              <a class="resource-link" href="https://github.com/CUHK-AIM-Group/EndoGaussian">Code</a>
+              <a class="resource-link" href="https://yifliu3.github.io/EndoGaussian/">Project Page</a>
+              <p class="publication-venue">IEEE TMI 2025</p>
+            </div>
+            <p class="publication-description">The first work to apply 3D Gaussian Splatting for dynamic (4D) endoscopic reconstruction, guided by foundation models.</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-media">
+            <img src="pic/IMG_ukan.jpg" alt="U-KAN architecture overview">
+          </div>
+          <div class="project-content">
+            <h3 class="publication-title"><a href="https://arxiv.org/abs/2406.02918">U-KAN Makes Strong Backbone for Medical Image Segmentation and Generation</a></h3>
+            <p class="publication-authors">Chenxin Li, Xinyu Liu, Wuyang Li, Cheng Wang, Hengyu Liu, <strong>Yifan Liu</strong>, Zhen Chen, Yixuan Yuan</p>
+            <div class="resource-links">
+              <a class="resource-link" href="https://arxiv.org/abs/2406.02918">Paper</a>
+              <a class="resource-link" href="https://github.com/CUHK-AIM-Group/U-KAN">Code</a>
+              <a class="resource-link" href="https://yes-u-kan.github.io/">Project Page</a>
+              <p class="publication-venue">AAAI 2025</p>
+            </div>
+            <p class="publication-description">Introducing Kolmogorov-Arnold Networks (KANs) as a strong backbone for medical image segmentation and generation.</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-media">
+            <img src="pic/IMG_gaussianreg.png" alt="GaussianReg method overview">
+          </div>
+          <div class="project-content">
+            <h3 class="publication-title"><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Yu_GaussianReg_Rapid_2D3D_Registration_for_Emergency_Surgery_via_Explicit_3D_ICCV_2025_paper.html">GaussianReg: Rapid 2D/3D Registration for Emergency Surgery via Explicit 3D Modeling with Gaussian Primitives</a></h3>
+            <p class="publication-authors">Weihao Yu, Xiaoqing Guo, Xinyu Liu, <strong>Yifan Liu</strong>, Haonan Zheng, Yawen Huang, Yixuan Yuan</p>
+            <div class="resource-links">
+              <a class="resource-link" href="https://openaccess.thecvf.com/content/ICCV2025/html/Yu_GaussianReg_Rapid_2D3D_Registration_for_Emergency_Surgery_via_Explicit_3D_ICCV_2025_paper.html">Paper</a>
+              <a class="resource-link" href="https://github.com/CUHK-AIM-Group/GaussianReg">Code</a>
+              <p class="publication-venue">ICCV 2025</p>
+            </div>
+            <p class="publication-description">Rapid 2D/3D registration for emergency surgery using sparse Gaussian primitives and a ray-based registration scheme.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="awards" class="content-section" aria-labelledby="awards-heading">
+      <h2 id="awards-heading" class="section-heading">
+        <i class="fa-solid fa-award" aria-hidden="true"></i> Selected Honors
+      </h2>
+      <ul class="bullet-list">
+        <li>Golden Reviewer Award, ICML 2026</li>
+        <li>Postgraduate Studentship, CUHK, 2021–2026</li>
+        <li>First Class Scholarship, 2019–2020</li>
+        <li>Scholarship of Academic Excellence, 2017–2020</li>
+        <li>Outstanding Graduates of Huazhong University of Science and Technology, 2021</li>
+      </ul>
+    </section>
+
+    <section id="activities" class="content-section" aria-labelledby="activities-heading">
+      <h2 id="activities-heading" class="section-heading">
+        <i class="fa-solid fa-server" aria-hidden="true"></i> Academic Services
+      </h2>
+      <ul class="simple-list">
+        <li><strong>Conference Reviewer:</strong> CVPR, ICCV, ECCV, NeurIPS, ICLR, ICML, ICRA, IROS</li>
+        <li><strong>Journal Reviewer:</strong> IJCV, TPAMI, TNNLS, TCSVT, TMM, TMI, MIA</li>
+      </ul>
+    </section>
+
+    <section id="miscellaneous" class="content-section" aria-labelledby="miscellaneous-heading">
+      <h2 id="miscellaneous-heading" class="section-heading">
+        <i class="fa-solid fa-puzzle-piece" aria-hidden="true"></i> Miscellaneous
+      </h2>
+      <p>Curiosity and enthusiasm shape both my research and my life. I'm also passionate about basketball🏀, hiking⛰️, swimming🏊‍♂️, table tennis🏓, and badminton🏸.</p>
+    </section>
+
+    <footer class="site-footer">
+      <p>
+        © Yifan Liu · Last updated: May 2026
+        <span id="visitCounter" hidden>
+          · <i class="fa-solid fa-eye" aria-hidden="true"></i>
+          <span id="visitCount">--</span> visits this month
+        </span>
+      </p>
+      <p>The style of this website is borrowed from Shengyuan Liu, Jun Cen and Zeqing Yuan</p>
+    </footer>
+  </main>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+    <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+  </button>
+
+  <div class="media-preview" id="mediaPreview" aria-hidden="true">
+    <div class="media-preview-frame" id="mediaPreviewFrame"></div>
   </div>
 
-  <!-- Back to Top Button -->
-  <div class="back-to-top" id="backToTop">
-    <i class="fas fa-chevron-up"></i>
-  </div>
-
-  <!-- Monthly visit counter (Abacus, free + no-auth) -->
   <script>
     (function () {
-      var NS = 'yifliu3-hp-7k3m9q2x';
+      var namespace = 'yifliu3-hp-7k3m9q2x';
       var now = new Date();
       var month = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
-      var url = 'https://abacus.jasoncameron.dev/hit/' + NS + '/' + month;
-
-      // Avoid double-counting on the same month from a single browser
       var sessionKey = 'visit-counted-' + month;
-      var endpoint = sessionStorage.getItem(sessionKey)
-        ? 'https://abacus.jasoncameron.dev/get/' + NS + '/' + month
-        : url;
+      var counted = sessionStorage.getItem(sessionKey);
+      var action = counted ? 'get' : 'hit';
+      var endpoint = 'https://abacus.jasoncameron.dev/' + action + '/' + namespace + '/' + month;
 
       fetch(endpoint, { method: 'GET', cache: 'no-store' })
-        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (response) {
+          return response.ok ? response.json() : null;
+        })
         .then(function (data) {
           if (!data || typeof data.value !== 'number') return;
           sessionStorage.setItem(sessionKey, '1');
-          var num = document.getElementById('visitCount');
-          var wrap = document.getElementById('visitCounter');
-          if (num && wrap) {
-            num.textContent = data.value.toLocaleString();
-            wrap.removeAttribute('hidden');
-          }
+          document.getElementById('visitCount').textContent = data.value.toLocaleString();
+          document.getElementById('visitCounter').hidden = false;
         })
-        .catch(function () { /* silently hide on failure */ });
+        .catch(function () {
+          document.getElementById('visitCounter').hidden = true;
+        });
     })();
   </script>
 
-  <!-- GitHub star counts for Code buttons -->
   <script>
     (function () {
-      var CACHE_KEY = 'gh-star-cache-v1';
-      var CACHE_TTL = 6 * 60 * 60 * 1000; // 6 hours
+      var cacheKey = 'gh-star-cache-v1';
+      var cacheTtl = 6 * 60 * 60 * 1000;
+      var cache = {};
 
-      function loadCache() {
-        try {
-          var raw = localStorage.getItem(CACHE_KEY);
-          return raw ? JSON.parse(raw) : {};
-        } catch (e) { return {}; }
+      try {
+        cache = JSON.parse(localStorage.getItem(cacheKey) || '{}');
+      } catch (error) {
+        cache = {};
       }
 
-      function saveCache(cache) {
-        try { localStorage.setItem(CACHE_KEY, JSON.stringify(cache)); } catch (e) {}
-      }
-
-      function formatStars(n) {
-        if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
-        return String(n);
-      }
-
-      function parseRepo(url) {
-        var m = url.match(/^https?:\/\/github\.com\/([^/]+)\/([^/?#]+)/i);
-        if (!m) return null;
-        return { owner: m[1], repo: m[2].replace(/\.git$/, '') };
+      function formatStars(count) {
+        if (count >= 1000) {
+          return (count / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
+        }
+        return String(count);
       }
 
       function appendBadge(link, count) {
@@ -1670,212 +363,137 @@
         var badge = document.createElement('span');
         badge.className = 'gh-star-badge';
         badge.title = count.toLocaleString() + ' GitHub stars';
-        badge.innerHTML = '<i class="fa fa-star" aria-hidden="true"></i>' + formatStars(count);
+        badge.innerHTML = '<i class="fa-solid fa-star" aria-hidden="true"></i>' + formatStars(count);
         link.appendChild(badge);
       }
 
-      var cache = loadCache();
-      var now = Date.now();
-      var links = document.querySelectorAll('a.text-btn[href*="github.com"]');
-
-      links.forEach(function (link) {
+      document.querySelectorAll('a.resource-link[href*="github.com"]').forEach(function (link) {
         if (link.dataset.noStars === 'true') return;
-        var info = parseRepo(link.href);
-        if (!info) return;
-        var key = info.owner + '/' + info.repo;
-        var cached = cache[key];
+        var match = link.href.match(/^https?:\/\/github\.com\/([^/]+)\/([^/?#]+)/i);
+        if (!match) return;
+        var repo = match[1] + '/' + match[2].replace(/\.git$/, '');
+        var cached = cache[repo];
 
-        if (cached && (now - cached.t) < CACHE_TTL && typeof cached.s === 'number') {
-          appendBadge(link, cached.s);
+        if (cached && Date.now() - cached.time < cacheTtl) {
+          appendBadge(link, cached.stars);
           return;
         }
 
-        fetch('https://api.github.com/repos/' + info.owner + '/' + info.repo, { cache: 'no-store' })
-          .then(function (r) { return r.ok ? r.json() : null; })
+        fetch('https://api.github.com/repos/' + repo, { cache: 'no-store' })
+          .then(function (response) {
+            return response.ok ? response.json() : null;
+          })
           .then(function (data) {
             if (!data || typeof data.stargazers_count !== 'number') return;
-            cache[key] = { s: data.stargazers_count, t: Date.now() };
-            saveCache(cache);
+            cache[repo] = { stars: data.stargazers_count, time: Date.now() };
+            try {
+              localStorage.setItem(cacheKey, JSON.stringify(cache));
+            } catch (error) {
+              // The badge still works when storage is unavailable.
+            }
             appendBadge(link, data.stargazers_count);
           })
-          .catch(function () { /* silently ignore */ });
+          .catch(function () {
+            // Star counts are optional progressive enhancement.
+          });
       });
     })();
   </script>
 
-  <!-- Hover preview popup -->
-  <div class="media-preview" id="mediaPreview" aria-hidden="true">
-    <div class="media-preview-frame" id="mediaPreviewFrame"></div>
-  </div>
+  <script>
+    (function () {
+      var button = document.getElementById('backToTop');
+      if (!button) return;
+
+      function update() {
+        button.classList.toggle('show', window.scrollY > 220);
+      }
+
+      window.addEventListener('scroll', update, { passive: true });
+      button.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      update();
+    })();
+  </script>
 
   <script>
     (function () {
-      // Skip on touch / narrow screens
       var isTouch = window.matchMedia('(hover: none)').matches || window.innerWidth <= 1060;
       if (isTouch) return;
 
       var preview = document.getElementById('mediaPreview');
       var frame = document.getElementById('mediaPreviewFrame');
+      var activeMedia = null;
       if (!preview || !frame) return;
 
-      var hideTimer = null;
-      var SCALE = 2.2;            // popup is ~2.2x the thumbnail
-      var MAX_W = 560;            // hard cap on width
-      var MAX_H = 0.7;            // 70% of viewport height
-      var GAP = 12;               // spacing from thumbnail edge
-      var VIEWPORT_PAD = 16;      // min distance from viewport edges
-
-      function clearFrame() {
-        var v = frame.querySelector('video');
-        if (v) { try { v.pause(); } catch (e) {} }
-        frame.innerHTML = '';
-      }
-
-      function getNaturalSize(el) {
-        if (el.tagName === 'IMG') {
-          return { w: el.naturalWidth || 0, h: el.naturalHeight || 0 };
-        }
-        if (el.tagName === 'VIDEO') {
-          return { w: el.videoWidth || 0, h: el.videoHeight || 0 };
-        }
-        return { w: 0, h: 0 };
-      }
-
-      function positionPreview(mediaEl, intrinsic) {
-        var rect = mediaEl.getBoundingClientRect();
-        var maxH = window.innerHeight * MAX_H;
-
-        // Target width: 2.2x thumbnail, clamped
-        var targetW = Math.min(rect.width * SCALE, MAX_W, window.innerWidth - 2 * VIEWPORT_PAD);
-
-        // Compute height from intrinsic ratio, fallback to thumbnail ratio
-        var ratio = (intrinsic.w && intrinsic.h)
-          ? intrinsic.h / intrinsic.w
-          : rect.height / rect.width;
-        var targetH = targetW * ratio;
-
-        // If too tall, scale down proportionally
-        if (targetH > maxH) {
-          targetH = maxH;
-          targetW = targetH / ratio;
-        }
-
-        // Try left side first, then right, otherwise overlap
-        var leftSpace = rect.left - GAP - VIEWPORT_PAD;
-        var rightSpace = window.innerWidth - rect.right - GAP - VIEWPORT_PAD;
-        var left;
-        if (leftSpace >= targetW) {
-          left = rect.left - GAP - targetW;
-        } else if (rightSpace >= targetW) {
-          left = rect.right + GAP;
-        } else {
-          // Center horizontally over the thumbnail
-          left = rect.left + rect.width / 2 - targetW / 2;
-        }
-
-        // Vertically center on thumbnail, clamp to viewport
-        var top = rect.top + rect.height / 2 - targetH / 2;
-        top = Math.max(VIEWPORT_PAD, Math.min(top, window.innerHeight - targetH - VIEWPORT_PAD));
-        left = Math.max(VIEWPORT_PAD, Math.min(left, window.innerWidth - targetW - VIEWPORT_PAD));
-
-        preview.style.width = targetW + 'px';
-        preview.style.height = targetH + 'px';
+      function positionPreview(container, source) {
+        var rect = container.getBoundingClientRect();
+        var naturalWidth = source.videoWidth || source.naturalWidth || rect.width;
+        var naturalHeight = source.videoHeight || source.naturalHeight || rect.height;
+        var ratio = naturalHeight / naturalWidth;
+        var width = Math.min(rect.width * 2.2, 560, window.innerWidth - 32);
+        var height = Math.min(width * ratio, window.innerHeight * 0.7);
+        width = height / ratio;
+        var left = rect.left - width - 12;
+        if (left < 16) left = rect.right + 12;
+        left = Math.max(16, Math.min(left, window.innerWidth - width - 16));
+        var top = rect.top + rect.height / 2 - height / 2;
+        top = Math.max(16, Math.min(top, window.innerHeight - height - 16));
+        preview.style.width = width + 'px';
+        preview.style.height = height + 'px';
         preview.style.left = left + 'px';
         preview.style.top = top + 'px';
       }
 
-      function showPreview(sourceEl, mediaEl) {
-        clearTimeout(hideTimer);
-        clearFrame();
-
-        var clone;
-        if (sourceEl.tagName === 'VIDEO') {
-          clone = sourceEl.cloneNode(true);
-          clone.removeAttribute('width');
-          clone.removeAttribute('height');
+      function showPreview(container, source) {
+        activeMedia = container;
+        var clone = source.cloneNode(true);
+        clone.removeAttribute('width');
+        clone.removeAttribute('height');
+        if (clone.tagName === 'VIDEO') {
           clone.muted = true;
           clone.loop = true;
           clone.autoplay = true;
           clone.playsInline = true;
-          clone.controls = false;
-        } else if (sourceEl.tagName === 'IMG') {
-          clone = new Image();
-          clone.src = sourceEl.currentSrc || sourceEl.src;
-          clone.alt = sourceEl.alt || '';
-        } else {
-          return;
         }
-
-        // Make the cloned element fill the frame (object-fit handled by CSS)
-        clone.style.width = '100%';
-        clone.style.height = '100%';
-        clone.style.objectFit = 'contain';
-
-        frame.appendChild(clone);
-
-        if (clone.tagName === 'VIDEO') {
-          var p = clone.play();
-          if (p && typeof p.catch === 'function') p.catch(function () {});
-        }
-
-        positionPreview(mediaEl, getNaturalSize(sourceEl));
-
-        // If natural size wasn't ready yet (img not loaded), recalc when it is
-        if (sourceEl.tagName === 'IMG' && (!sourceEl.naturalWidth || !sourceEl.naturalHeight)) {
-          sourceEl.addEventListener('load', function once() {
-            sourceEl.removeEventListener('load', once);
-            if (preview.classList.contains('show')) {
-              positionPreview(mediaEl, getNaturalSize(sourceEl));
-            }
-          });
-        }
-
+        frame.replaceChildren(clone);
+        positionPreview(container, source);
         preview.classList.add('show');
         preview.setAttribute('aria-hidden', 'false');
+        if (clone.tagName === 'VIDEO') {
+          clone.play().catch(function () {
+            // Browser autoplay policy may prevent the optional preview.
+          });
+        }
       }
 
       function hidePreview() {
+        activeMedia = null;
         preview.classList.remove('show');
         preview.setAttribute('aria-hidden', 'true');
-        hideTimer = setTimeout(clearFrame, 200);
+        frame.replaceChildren();
       }
 
-      document.querySelectorAll('.project-media').forEach(function (media) {
-        var inner = media.querySelector('img, video');
-        if (!inner) return;
-
-        media.addEventListener('mouseenter', function () {
-          showPreview(inner, media);
+      document.querySelectorAll('.project-media').forEach(function (container) {
+        var source = container.querySelector('img, video');
+        if (!source) return;
+        container.addEventListener('mouseenter', function () {
+          showPreview(container, source);
         });
-        media.addEventListener('mouseleave', hidePreview);
+        container.addEventListener('mouseleave', hidePreview);
       });
 
-      // Reposition on scroll/resize while visible
-      var pendingFrame = null;
-      function reposition() {
-        if (!preview.classList.contains('show')) return;
-        var hovered = document.querySelector('.project-media:hover');
-        if (!hovered) return;
-        var inner = hovered.querySelector('img, video');
-        if (!inner) return;
-        positionPreview(hovered, getNaturalSize(inner));
-      }
-      function schedule() {
-        if (pendingFrame) return;
-        pendingFrame = requestAnimationFrame(function () {
-          pendingFrame = null;
-          reposition();
-        });
-      }
-      window.addEventListener('scroll', schedule, { passive: true });
-      window.addEventListener('resize', schedule);
-
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') hidePreview();
+      window.addEventListener('scroll', function () {
+        if (!activeMedia) return;
+        var source = activeMedia.querySelector('img, video');
+        if (source) positionPreview(activeMedia, source);
+      }, { passive: true });
+      window.addEventListener('resize', hidePreview);
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') hidePreview();
       });
     })();
   </script>
-
 </body>
-
 </html>
