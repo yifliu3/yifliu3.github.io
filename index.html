@@ -207,7 +207,7 @@
               <a class="resource-link" href="https://gaussian-stego.github.io/">Project Page</a>
               <p class="publication-venue">ICLR 2025</p>
             </div>
-            <p class="publication-description">An initial exploration into embedding customizable, imperceptible, and recoverable information within the renders produced by off-the-line 3D generative models, while ensuring minimal impact on the rendered content's quality.</p>
+            <p class="publication-description">A framework for embedding imperceptible, recoverable information in 3D generative model renders.</p>
           </div>
         </article>
 
@@ -282,7 +282,7 @@
       </h2>
       <ul class="simple-list">
         <li><strong>Conference Reviewer:</strong> CVPR, ICCV, ECCV, NeurIPS, ICLR, ICML, ICRA, IROS</li>
-        <li><strong>Journal Reviewer:</strong> IJCV, TPAMI, TNNLS, TCSVT, TMM, TMI, MIA</li>
+        <li><strong>Journal Reviewer:</strong> IJCV, TPAMI, TVCG, TNNLS, TCSVT, TMM, TMI, MIA</li>
       </ul>
     </section>
 
@@ -341,16 +341,6 @@
 
   <script>
     (function () {
-      var cacheKey = 'gh-star-cache-v1';
-      var cacheTtl = 6 * 60 * 60 * 1000;
-      var cache = {};
-
-      try {
-        cache = JSON.parse(localStorage.getItem(cacheKey) || '{}');
-      } catch (error) {
-        cache = {};
-      }
-
       function formatStars(count) {
         if (count >= 1000) {
           return (count / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
@@ -367,36 +357,25 @@
         link.appendChild(badge);
       }
 
-      document.querySelectorAll('a.resource-link[href*="github.com"]').forEach(function (link) {
-        if (link.dataset.noStars === 'true') return;
-        var match = link.href.match(/^https?:\/\/github\.com\/([^/]+)\/([^/?#]+)/i);
-        if (!match) return;
-        var repo = match[1] + '/' + match[2].replace(/\.git$/, '');
-        var cached = cache[repo];
+      fetch('data/github-stars.json', { cache: 'no-cache' })
+        .then(function (response) {
+          return response.ok ? response.json() : null;
+        })
+        .then(function (stars) {
+          if (!stars || typeof stars !== 'object') return;
 
-        if (cached && Date.now() - cached.time < cacheTtl) {
-          appendBadge(link, cached.stars);
-          return;
-        }
-
-        fetch('https://api.github.com/repos/' + repo, { cache: 'no-store' })
-          .then(function (response) {
-            return response.ok ? response.json() : null;
-          })
-          .then(function (data) {
-            if (!data || typeof data.stargazers_count !== 'number') return;
-            cache[repo] = { stars: data.stargazers_count, time: Date.now() };
-            try {
-              localStorage.setItem(cacheKey, JSON.stringify(cache));
-            } catch (error) {
-              // The badge still works when storage is unavailable.
-            }
-            appendBadge(link, data.stargazers_count);
-          })
-          .catch(function () {
-            // Star counts are optional progressive enhancement.
+          document.querySelectorAll('a.resource-link[href*="github.com"]').forEach(function (link) {
+            if (link.dataset.noStars === 'true') return;
+            var match = link.href.match(/^https?:\/\/github\.com\/([^/]+)\/([^/?#]+)/i);
+            if (!match) return;
+            var repo = match[1] + '/' + match[2].replace(/\.git$/, '');
+            var count = stars[repo];
+            if (typeof count === 'number') appendBadge(link, count);
           });
-      });
+        })
+        .catch(function () {
+          // Star counts are optional progressive enhancement.
+        });
     })();
   </script>
 

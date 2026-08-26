@@ -1,5 +1,6 @@
 from html.parser import HTMLParser
 from pathlib import Path
+import json
 import re
 import unittest
 
@@ -7,6 +8,8 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 HTML_PATH = ROOT / "index.html"
 CSS_PATH = ROOT / "stylesheet.css"
+STAR_DATA_PATH = ROOT / "data" / "github-stars.json"
+STAR_WORKFLOW_PATH = ROOT / ".github" / "workflows" / "update-github-stars.yml"
 
 
 class PageParser(HTMLParser):
@@ -164,6 +167,14 @@ class HomepageTests(unittest.TestCase):
         for title in expected_titles:
             self.assertIn(title, self.html)
 
+    def test_instantsplamp_description_is_concise(self):
+        self.assertIn(
+            "A framework for embedding imperceptible, recoverable information "
+            "in 3D generative model renders.",
+            self.html,
+        )
+        self.assertNotIn("An initial exploration into embedding", self.html)
+
     def test_project_media_and_card_styles_are_responsive(self):
         self.assertIn(".project-card", self.css)
         self.assertIn(
@@ -207,18 +218,49 @@ class HomepageTests(unittest.TestCase):
             'id="visitCount"',
             'id="mediaPreview"',
             'id="mediaPreviewFrame"',
-            "gh-star-cache-v1",
             "abacus.jasoncameron.dev",
             "matchMedia('(hover: none)')",
         )
         for marker in required:
             self.assertIn(marker, self.html)
 
-    def test_api_failures_are_non_fatal(self):
+    def test_github_stars_use_generated_same_origin_data(self):
+        self.assertIn("fetch('data/github-stars.json'", self.html)
+        self.assertNotIn("api.github.com", self.html)
+        self.assertNotIn("gh-star-cache-v1", self.html)
+
+        stars = json.loads(STAR_DATA_PATH.read_text(encoding="utf-8"))
+        self.assertEqual(
+            set(stars),
+            {
+                "Tencent-Hunyuan/HunyuanWorld-Mirror",
+                "CUHK-AIM-Group/MonoSplat",
+                "CUHK-AIM-Group/GaussianStego",
+                "CUHK-AIM-Group/EndoGaussian",
+                "CUHK-AIM-Group/U-KAN",
+                "CUHK-AIM-Group/GaussianReg",
+            },
+        )
+        self.assertTrue(
+            all(isinstance(count, int) and count >= 0 for count in stars.values())
+        )
+
+        workflow = STAR_WORKFLOW_PATH.read_text(encoding="utf-8")
+        for marker in (
+            "schedule:",
+            "workflow_dispatch:",
+            "pages: write",
+            "python3 scripts/update_github_stars.py",
+            "actions/upload-pages-artifact@v4",
+            "actions/deploy-pages@v4",
+        ):
+            self.assertIn(marker, workflow)
+
+    def test_optional_network_failures_are_non_fatal(self):
         self.assertGreaterEqual(
             self.html.count(".catch(function () {"),
             2,
-            "Both visit and GitHub API requests must handle rejection",
+            "Both optional network requests must handle rejection",
         )
 
     def test_mobile_css_prevents_horizontal_overflow(self):
@@ -345,7 +387,7 @@ class HomepageTests(unittest.TestCase):
         )
         self.assertIn(
             "<li><strong>Journal Reviewer:</strong> "
-            "IJCV, TPAMI, TNNLS, TCSVT, TMM, TMI, MIA</li>",
+            "IJCV, TPAMI, TVCG, TNNLS, TCSVT, TMM, TMI, MIA</li>",
             self.html,
         )
         self.assertNotIn('class="service-group"', self.html)
