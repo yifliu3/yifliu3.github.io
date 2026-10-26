@@ -641,14 +641,14 @@ class HomepageTests(unittest.TestCase):
         self.assertEqual(honors[0].text().strip(), "Golden Reviewer Award, ICML 2026")
         self.assertEqual(
             [honor.text().strip() for honor in honors][2:4],
-            ["Outstanding Graduates, HUST, 2021", "First Class Scholarship, 2019–2020"],
+            ["Outstanding Graduates, HUST, 2021", "First Class Scholarship, HUST, 2019–2020"],
         )
         self.assertNotIn(
             "Outstanding Graduates of Huazhong University of Science and Technology",
             self.html,
         )
         self.assertIn("Postgraduate Studentship, CUHK, 2021–2026", self.html)
-        self.assertIn("First Class Scholarship, 2019–2020", self.html)
+        self.assertIn("First Class Scholarship, HUST, 2019–2020", self.html)
         self.assertNotIn("Self-Reliance Scholarship", self.html)
         interests = self.parser.ids["miscellaneous"].text()
         for interest in ("basketball", "swimming", "table tennis", "badminton"):
