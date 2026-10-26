@@ -133,6 +133,19 @@ button { font: inherit; }
 img { max-width: 100%; }
 strong { color: var(--emphasis-text); }
 
+.icon {
+  display: inline-flex;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
 h1,
 h2,
 h3 {

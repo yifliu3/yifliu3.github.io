@@ -281,10 +281,11 @@ class HomepageTests(unittest.TestCase):
 
     def test_local_assets_exist(self):
         refs = [
-            node.attrs.get("src", "")
+            node.attrs.get("src", node.attrs.get("data-src", ""))
             for tag in ("img", "source", "script")
             for node in self.root.descendants(tag)
         ]
+        refs.extend(node.attrs.get("poster", "") for node in self.root.descendants("video"))
         refs.extend(
             node.attrs.get("href", "")
             for node in self.root.descendants("link")
@@ -305,6 +306,29 @@ class HomepageTests(unittest.TestCase):
         for video in videos:
             for attribute in ("autoplay", "muted", "loop", "playsinline"):
                 self.assertIn(attribute, video.attrs)
+
+    def test_homepage_media_stays_within_transfer_budget(self):
+        total_video_bytes = 0
+        for video in self.root.descendants("video"):
+            self.assertEqual(video.attrs.get("preload"), "none")
+            self.assertNotIn("src", video.attrs)
+            self.assertLess((ROOT / video.attrs["poster"]).stat().st_size, 64 * 1024)
+            for source in video.descendants("source"):
+                self.assertNotIn("src", source.attrs)
+                path = ROOT / source.attrs["data-src"]
+                self.assertLess(path.stat().st_size, 1024 * 1024)
+                total_video_bytes += path.stat().st_size
+                # MP4 metadata must precede video data for progressive playback.
+                data = path.read_bytes()
+                self.assertLess(data.index(b"moov"), data.index(b"mdat"))
+        self.assertLess(total_video_bytes, 3 * 1024 * 1024)
+        for image in self.root.descendants("img"):
+            self.assertLess((ROOT / image.attrs["src"]).stat().st_size, 100 * 1024)
+        self.assertFalse([
+            link for link in self.root.descendants("link")
+            if link.attrs.get("rel") == "stylesheet"
+            and link.attrs["href"].startswith("https://")
+        ])
 
     def test_images_and_icon_controls_are_accessible(self):
         for image in self.root.descendants("img"):
@@ -390,8 +414,8 @@ class HomepageTests(unittest.TestCase):
             "Technical Report, 2026",
         )
         video = report.descendants("video")[0]
-        self.assertEqual(video.attrs["poster"], "pic/hy-nomas-poster.jpg")
-        self.assertEqual(video.descendants("source")[0].attrs["src"], "vid/Hy-Nomas.mp4")
+        self.assertEqual(video.attrs["poster"], "media/Hy-Nomas.webp")
+        self.assertEqual(video.descendants("source")[0].attrs["data-src"], "media/Hy-Nomas.mp4")
         self.assertTrue((ROOT / video.attrs["poster"]).exists())
         links = report.descendants("a", "resource-link")
         self.assertEqual(

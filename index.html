@@ -7,7 +7,6 @@
   <meta name="author" content="Yifan Liu">
   <title>Yifan Liu</title>
   <link rel="preload" href="fonts/lato-regular-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="stylesheet.css">
   <script>
     (function () {
@@ -23,9 +22,16 @@
   </script>
 </head>
 <body>
+  <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M21 13.1A9 9 0 0 1 10.9 3a9 9 0 1 0 10.1 10.1Z"/></symbol>
+    <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 1v2m0 18v2M1 12h2m18 0h2M4.2 4.2l1.4 1.4m12.8 12.8 1.4 1.4M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="icon-star" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.2L5.8 21 7 14.2 2 9.3l6.9-1Z"/></symbol>
+    <symbol id="icon-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="icon-up" viewBox="0 0 24 24"><path d="m5 15 7-7 7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </svg>
   <div class="theme-controls">
     <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
-      <i class="fa-solid fa-moon" aria-hidden="true"></i>
+      <i class="icon" aria-hidden="true"><svg><use href="#icon-moon"></use></svg></i>
     </button>
   </div>
 
@@ -63,7 +69,7 @@
       </div>
       <aside class="profile" aria-label="Profile">
         <a href="pic/YIFANLIU.PNG" aria-label="View full portrait of Yifan Liu">
-          <img class="profile-avatar" src="pic/YIFANLIU.PNG" alt="Portrait of Yifan Liu" width="1600" height="1600">
+          <img class="profile-avatar" src="media/portrait.webp" alt="Portrait of Yifan Liu" width="480" height="480" fetchpriority="high" decoding="async">
         </a>
       </aside>
     </section>
@@ -74,8 +80,8 @@
         <article class="publication-item">
           <div class="project-media">
             <!-- Preview video and poster from jiaxiangc.github.io. -->
-            <video autoplay muted loop playsinline poster="pic/hy-nomas-poster.jpg" aria-label="Hy-Nomas interactive world generation preview">
-              <source src="vid/Hy-Nomas.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline preload="none" poster="media/Hy-Nomas.webp" aria-label="Hy-Nomas interactive world generation preview">
+              <source data-src="media/Hy-Nomas.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -95,8 +101,8 @@
 
         <article class="publication-item">
           <div class="project-media">
-            <video autoplay muted loop playsinline>
-              <source src="vid/HYWorld1.1.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline preload="none" poster="media/HYWorld1.1.webp" aria-label="Hy-World 1.1 reconstruction preview">
+              <source data-src="media/HYWorld1.1.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -125,8 +131,8 @@
       <div class="project-list">
         <article class="publication-item">
           <div class="project-media">
-            <video autoplay muted loop playsinline>
-              <source src="vid/WorldMirror.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline preload="none" poster="media/WorldMirror.webp" aria-label="WorldMirror reconstruction preview">
+              <source data-src="media/WorldMirror.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -146,8 +152,8 @@
 
         <article class="publication-item">
           <div class="project-media">
-            <video autoplay muted loop playsinline>
-              <source src="vid/MonoSplat.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline preload="none" poster="media/MonoSplat.webp" aria-label="MonoSplat reconstruction preview">
+              <source data-src="media/MonoSplat.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -165,7 +171,7 @@
 
         <article class="publication-item">
           <div class="project-media">
-            <img src="pic/IMG_EndoGaussianJ.PNG" alt="EndoGaussian reconstruction overview">
+            <img src="media/endogaussian.webp" alt="EndoGaussian reconstruction overview" loading="lazy" decoding="async">
           </div>
           <div class="project-content">
             <h3 class="publication-title"><a href="https://ieeexplore.ieee.org/document/10902412">Foundation Model-guided Gaussian Splatting for 4D Reconstruction of Deformable Tissues</a></h3>
@@ -182,7 +188,7 @@
 
         <article class="publication-item">
           <div class="project-media">
-            <img src="pic/IMG_ukan.jpg" alt="U-KAN architecture overview">
+            <img src="media/ukan.webp" alt="U-KAN architecture overview" loading="lazy" decoding="async">
           </div>
           <div class="project-content">
             <h3 class="publication-title"><a href="https://arxiv.org/abs/2406.02918">U-KAN Makes Strong Backbone for Medical Image Segmentation and Generation</a></h3>
@@ -205,7 +211,7 @@
         <article class="education-item">
           <span class="entry-date">2021–2026</span>
           <div class="education-logo education-logo-cuhk">
-            <img src="images/education/cuhk.png" alt="The Chinese University of Hong Kong logo" loading="lazy">
+            <img src="media/cuhk.webp" alt="The Chinese University of Hong Kong logo" width="84" height="56" loading="lazy" decoding="async">
           </div>
           <div class="education-content">
             <h3>Ph.D. in Electronic Engineering</h3>
@@ -218,7 +224,7 @@
         <article class="education-item">
           <span class="entry-date">2017–2021</span>
           <div class="education-logo">
-            <img src="images/education/hust.png" alt="Huazhong University of Science and Technology logo" loading="lazy">
+            <img src="media/hust.webp" alt="Huazhong University of Science and Technology logo" width="84" height="65" loading="lazy" decoding="async">
           </div>
           <div class="education-content">
             <h3>B.Eng. in Electronic Information Engineering</h3>
@@ -269,7 +275,7 @@
       <p>
         © Yifan Liu · Last updated: October 2026
         <span id="visitCounter" hidden>
-          · <i class="fa-solid fa-eye" aria-hidden="true"></i>
+          · <i class="icon" aria-hidden="true"><svg><use href="#icon-eye"></use></svg></i>
           <span id="visitCount">--</span> visits this month
         </span>
       </p>
@@ -278,7 +284,7 @@
   </footer>
 
   <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top" title="Back to top">
-    <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+    <i class="icon" aria-hidden="true"><svg><use href="#icon-up"></use></svg></i>
   </button>
 
   <div class="media-preview" id="mediaPreview" aria-hidden="true">
@@ -289,11 +295,11 @@
     (function () {
       var root = document.documentElement;
       var button = document.querySelector('.theme-toggle');
-      var icon = button.querySelector('i');
+      var icon = button.querySelector('use');
       function syncTheme() {
         var dark = root.getAttribute('data-theme') === 'dark';
         var label = dark ? 'Switch to light mode' : 'Switch to dark mode';
-        icon.className = dark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+        icon.setAttribute('href', dark ? '#icon-sun' : '#icon-moon');
         button.setAttribute('aria-label', label);
         button.title = label;
       }
@@ -349,7 +355,7 @@
         var badge = document.createElement('span');
         badge.className = 'gh-star-badge';
         badge.title = count.toLocaleString() + ' GitHub stars';
-        badge.innerHTML = '<i class="fa-solid fa-star" aria-hidden="true"></i>' + formatStars(count);
+        badge.innerHTML = '<i class="icon" aria-hidden="true"><svg><use href="#icon-star"></use></svg></i>' + formatStars(count);
         link.appendChild(badge);
       }
 
@@ -393,6 +399,7 @@
     })();
   </script>
 
+  <script src="scripts/media.js" defer></script>
   <script>
     (function () {
       var isTouch = window.matchMedia('(hover: none)').matches || window.innerWidth <= 1060;
@@ -428,10 +435,17 @@
         clone.removeAttribute('width');
         clone.removeAttribute('height');
         if (clone.tagName === 'VIDEO') {
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+              (navigator.connection && navigator.connection.saveData)) return;
           clone.muted = true;
           clone.loop = true;
           clone.autoplay = true;
           clone.playsInline = true;
+          clone.querySelectorAll('source[data-src]').forEach(function (item) {
+            item.src = item.dataset.src;
+          });
+        } else {
+          clone.loading = 'eager';
         }
         frame.replaceChildren(clone);
         positionPreview(container, source);
