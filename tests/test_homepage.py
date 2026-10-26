@@ -369,9 +369,8 @@ class HomepageTests(unittest.TestCase):
         links = self.root.descendants(class_name="social-links")[0].descendants("a")
         self.assertEqual(
             [link.text().strip() for link in links],
-            ["Email", "Google Scholar", "GitHub", "Twitter"],
+            ["Email", "Google Scholar", "GitHub"],
         )
-        self.assertEqual(links[-1].attrs["href"], "https://x.com/liuyifan365")
         for link in links:
             self.assertFalse(link.descendants("i"))
         self.assertIn('content: "/"', self.css)
