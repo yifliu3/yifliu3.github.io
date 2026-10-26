@@ -316,12 +316,12 @@ class HomepageTests(unittest.TestCase):
             for source in video.descendants("source"):
                 self.assertNotIn("src", source.attrs)
                 path = ROOT / source.attrs["data-src"]
-                self.assertLess(path.stat().st_size, 1024 * 1024)
+                self.assertLess(path.stat().st_size, 1536 * 1024)
                 total_video_bytes += path.stat().st_size
                 # MP4 metadata must precede video data for progressive playback.
                 data = path.read_bytes()
                 self.assertLess(data.index(b"moov"), data.index(b"mdat"))
-        self.assertLess(total_video_bytes, 3 * 1024 * 1024)
+        self.assertLess(total_video_bytes, 4 * 1024 * 1024)
         for image in self.root.descendants("img"):
             self.assertLess((ROOT / image.attrs["src"]).stat().st_size, 100 * 1024)
         self.assertFalse([

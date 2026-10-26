@@ -1,5 +1,6 @@
 """Build homepage previews without modifying the original media.
 
+Keep source frame rates up to 30 fps and use CRF 25 for smoother, clearer video.
 Install Pillow and imageio-ffmpeg, then run: python3 scripts/optimize_media.py
 """
 
@@ -23,8 +24,8 @@ def main():
         subprocess.run([
             ffmpeg, "-hide_banner", "-loglevel", "error", "-y",
             "-i", str(original), "-map", "0:v:0", "-an",
-            "-vf", "scale=640:-2:flags=lanczos,fps=20",
-            "-c:v", "libx264", "-preset", "slow", "-crf", "28",
+            "-vf", "scale=640:-2:flags=lanczos,fps='min(source_fps,30)'",
+            "-c:v", "libx264", "-preset", "slow", "-crf", "25",
             "-pix_fmt", "yuv420p", "-movflags", "+faststart",
             str(preview),
         ], check=True)
