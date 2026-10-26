@@ -343,7 +343,11 @@ class HomepageTests(unittest.TestCase):
 
     def test_jon_barron_profile_links_and_unframed_rows(self):
         links = self.root.descendants(class_name="social-links")[0].descendants("a")
-        self.assertEqual([link.text().strip() for link in links], ["Email", "Google Scholar", "GitHub"])
+        self.assertEqual(
+            [link.text().strip() for link in links],
+            ["Email", "Google Scholar", "GitHub", "Twitter"],
+        )
+        self.assertEqual(links[-1].attrs["href"], "https://x.com/liuyifan365")
         for link in links:
             self.assertFalse(link.descendants("i"))
         self.assertIn('content: "/"', self.css)
@@ -540,7 +544,7 @@ class HomepageTests(unittest.TestCase):
             "My research focuses on video generation, world models, and 3D vision, with an emphasis "
             "on building practical products for generation and understanding in real-world applications.",
             "Dr. Zhenwei Wang",
-            "Dr. Tengfei Wang", "Tencent HY 3D Generation Team",
+            "Dr. Tengfei Wang at the Tencent HY 3D.",
         ):
             self.assertIn(text, about)
         heng_links = [
@@ -557,7 +561,7 @@ class HomepageTests(unittest.TestCase):
         self.assertEqual(advisor_links[0].attrs["href"], "https://www.ee.cuhk.edu.hk/~yxyuan/")
         for removed in (
             "final-year Ph.D. student",
-            "B.Eng.", "ByteDance Seed",
+            "B.Eng.", "ByteDance Seed", "Tencent HY 3D Generation Team",
         ):
             self.assertNotIn(removed, about)
         self.assertIn('href="mailto:liuyifan365@gmail.com">contact me</a>', self.html)
@@ -567,7 +571,8 @@ class HomepageTests(unittest.TestCase):
             node.text().strip()
             for node in self.parser.ids["about"].descendants("strong")
         ]
-        self.assertEqual(emphasis.count("Tencent HY"), 2)
+        self.assertEqual(emphasis.count("Tencent HY"), 1)
+        self.assertNotIn("Tencent HY 3D", emphasis)
         self.assertIn("video generation, world models, and 3D vision", emphasis)
 
     def test_institution_names_are_plain_text(self):
