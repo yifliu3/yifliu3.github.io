@@ -83,10 +83,8 @@
   --border: #d9d9d9;
   --selection-bg: #dceafa;
   --selection-text: #182b40;
-  --star-bg: #fff5df;
   --star-text: #725014;
   --star-icon: #a66e0b;
-  --star-border: #eedbb6;
   --content-width: 800px;
   --font-body: "Lato", Verdana, Helvetica, sans-serif;
   --font-head: var(--font-body);
@@ -348,11 +346,7 @@ h3 {
   align-items: center;
   gap: 4px;
   margin-left: 6px;
-  padding: 2px 6px;
   color: var(--star-text);
-  background: var(--star-bg);
-  border: 1px solid var(--star-border);
-  border-radius: 4px;
   font-size: 13px;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
