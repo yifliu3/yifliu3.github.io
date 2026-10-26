@@ -81,6 +81,8 @@
   --emphasis-text: var(--text);
   --bg: #ffffff;
   --border: #d9d9d9;
+  --selection-bg: #dceafa;
+  --selection-text: #182b40;
   --content-width: 800px;
   --font-body: "Lato", Verdana, Helvetica, sans-serif;
   --font-head: var(--font-body);
@@ -88,18 +90,26 @@
 
 html[data-theme="dark"] {
   color-scheme: dark;
-  --accent: #2698ba;
-  --hover: #6bc4df;
-  --text: #e8e8e8;
-  --text-muted: #a0a0a0;
+  --accent: #83b4d4;
+  --hover: #b3d5eb;
+  --text: #d8dadd;
+  --text-muted: #a5abb3;
   --emphasis-text: var(--accent);
-  --bg: #121212;
-  --border: #424246;
+  --bg: #181a1b;
+  --border: #343a40;
+  --selection-bg: #334c60;
+  --selection-text: #edf3f7;
 }
 
 * { box-sizing: border-box; }
 
+::selection {
+  color: var(--selection-text);
+  background: var(--selection-bg);
+}
+
 html {
+  background: var(--bg);
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
   scroll-padding-top: 20px;

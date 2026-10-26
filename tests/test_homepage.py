@@ -351,9 +351,9 @@ class HomepageTests(unittest.TestCase):
             heading = self.parser.ids[heading_id]
             self.assertIn(heading, section.descendants())
 
-    def test_theme_defaults_to_light_and_preserves_manual_choice(self):
-        self.assertIn('<html lang="en" data-theme="light">', self.html)
-        self.assertIn("var theme = 'light';", self.html)
+    def test_theme_defaults_to_dark_and_preserves_manual_choice(self):
+        self.assertIn('<html lang="en" data-theme="dark">', self.html)
+        self.assertIn("var theme = 'dark';", self.html)
         self.assertNotIn('prefers-color-scheme', self.html)
         self.assertNotIn('prefers-color-scheme', self.css)
         self.assertIn('html[data-theme="dark"]', self.css)
@@ -483,7 +483,7 @@ class HomepageTests(unittest.TestCase):
         explicit_dark = re.search(
             r"html\[data-theme=\"dark\"\]\s*\{([^}]+)\}", self.css,
         ).group(1)
-        self.assertIn("--accent: #2698ba", explicit_dark)
+        self.assertIn("--accent: #83b4d4", explicit_dark)
         self.assertIn("--emphasis-text: var(--accent)", explicit_dark)
         self.assertIn("--accent: #1772d0", self.css)
         self.assertIn("--hover: #f09228", self.css)
