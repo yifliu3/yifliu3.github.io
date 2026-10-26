@@ -83,6 +83,10 @@
   --border: #d9d9d9;
   --selection-bg: #dceafa;
   --selection-text: #182b40;
+  --star-bg: #fff5df;
+  --star-text: #725014;
+  --star-icon: #a66e0b;
+  --star-border: #eedbb6;
   --content-width: 800px;
   --font-body: "Lato", Verdana, Helvetica, sans-serif;
   --font-head: var(--font-body);
@@ -99,6 +103,10 @@ html[data-theme="dark"] {
   --border: #343a40;
   --selection-bg: #334c60;
   --selection-text: #edf3f7;
+  --star-bg: #332d20;
+  --star-text: #efcf8b;
+  --star-icon: #e6b957;
+  --star-border: #59492c;
 }
 
 * { box-sizing: border-box; }
@@ -165,6 +173,12 @@ h3 {
   line-height: normal;
 }
 
+.page-tools {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 20px;
+}
+
 .theme-toggle {
   display: inline-flex;
   align-items: center;
@@ -208,17 +222,9 @@ h3 {
 
 .about-intro { min-width: 0; }
 
-.about-heading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px 16px;
+.page-title {
   padding-top: 20px;
   margin-bottom: 12px;
-}
-
-.page-title {
   font-size: 34px;
   font-weight: 400;
   text-align: center;
@@ -380,13 +386,22 @@ h3 {
 .resource-link + .resource-link::before { content: "|"; }
 
 .gh-star-badge {
-  display: inline-block;
-  margin-left: 5px;
-  color: var(--text-muted);
-  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 6px;
+  padding: 2px 6px;
+  color: var(--star-text);
+  background: var(--star-bg);
+  border: 1px solid var(--star-border);
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
 }
 
-.gh-star-badge i { margin-right: 3px; }
+.gh-star-badge i { color: var(--star-icon); }
 
 .education-list {
   display: grid;
@@ -527,6 +542,8 @@ h3 {
 @media (max-width: 720px) {
   .content-wrapper { padding: 16px 0 20px; }
 
+  .page-tools { padding: 0 16px; }
+
   .about-section {
     grid-template-columns: minmax(0, 1fr);
     gap: 16px;
@@ -536,13 +553,10 @@ h3 {
 
   .about-intro { display: contents; }
 
-  .about-heading {
+  .page-title {
     grid-row: 1;
     padding-top: 8px;
     margin: 0;
-  }
-
-  .page-title {
     font-size: 34px;
   }
 

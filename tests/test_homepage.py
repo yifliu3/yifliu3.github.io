@@ -157,7 +157,7 @@ class HomepageTests(unittest.TestCase):
             (".education-content h3", ("font-size: 15px",)),
             (".education-content p", ("font-size: 15px",)),
             (".footer-wrapper", ("font-size: 13px",)),
-            (".gh-star-badge", ("font-size: 12px",)),
+            (".gh-star-badge", ("font-size: 13px",)),
             (".publication-item", ("padding: 0", "gap: 0")),
         ):
             rule = re.search(
