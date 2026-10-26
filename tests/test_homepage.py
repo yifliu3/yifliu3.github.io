@@ -351,9 +351,9 @@ class HomepageTests(unittest.TestCase):
             heading = self.parser.ids[heading_id]
             self.assertIn(heading, section.descendants())
 
-    def test_theme_defaults_to_dark_and_preserves_manual_choice(self):
-        self.assertIn('<html lang="en" data-theme="dark">', self.html)
-        self.assertIn("var theme = 'dark';", self.html)
+    def test_theme_defaults_to_light_and_preserves_manual_choice(self):
+        self.assertIn('<html lang="en" data-theme="light">', self.html)
+        self.assertIn("var theme = 'light';", self.html)
         self.assertNotIn('prefers-color-scheme', self.html)
         self.assertNotIn('prefers-color-scheme', self.css)
         self.assertIn('html[data-theme="dark"]', self.css)

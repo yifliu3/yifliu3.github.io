@@ -1,20 +1,20 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="dark light">
+  <meta name="color-scheme" content="light dark">
   <meta name="description" content="Academic homepage of Yifan Liu">
   <meta name="author" content="Yifan Liu">
   <title>Yifan Liu</title>
   <script>
     (function () {
-      var theme = 'dark';
+      var theme = 'light';
       try {
         var saved = localStorage.getItem('theme');
         if (saved === 'dark' || saved === 'light') theme = saved;
       } catch (error) {
-        // Keep the dark default when storage is unavailable.
+        // Keep the light default when storage is unavailable.
       }
       document.documentElement.setAttribute('data-theme', theme);
     })();
@@ -30,16 +30,16 @@
     <symbol id="icon-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3"/></symbol>
     <symbol id="icon-up" viewBox="0 0 24 24"><path d="m5 15 7-7 7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   </svg>
-  <div class="theme-controls">
-    <button class="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch to light mode">
-      <i class="icon" aria-hidden="true"><svg><use href="#icon-sun"></use></svg></i>
-    </button>
-  </div>
-
   <main class="content-wrapper">
     <section id="about" class="content-section about-section" aria-labelledby="about-heading">
       <div class="about-intro">
-        <h1 id="about-heading" class="page-title">Yifan Liu</h1>
+        <div class="about-heading">
+          <h1 id="about-heading" class="page-title">Yifan Liu</h1>
+          <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
+            <i class="icon" aria-hidden="true"><svg><use href="#icon-moon"></use></svg></i>
+            <span class="theme-toggle-label">Dark mode</span>
+          </button>
+        </div>
         <div class="about-body">
           <p>
             I am a Researcher at <strong>Tencent HY</strong>, working with
@@ -296,10 +296,12 @@
       var root = document.documentElement;
       var button = document.querySelector('.theme-toggle');
       var icon = button.querySelector('use');
+      var buttonText = button.querySelector('.theme-toggle-label');
       function syncTheme() {
         var dark = root.getAttribute('data-theme') === 'dark';
         var label = dark ? 'Switch to light mode' : 'Switch to dark mode';
         icon.setAttribute('href', dark ? '#icon-sun' : '#icon-moon');
+        buttonText.textContent = dark ? 'Light mode' : 'Dark mode';
         button.setAttribute('aria-label', label);
         button.title = label;
       }
