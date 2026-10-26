@@ -110,7 +110,7 @@ body {
   color: var(--text);
   background: var(--bg);
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: 15px;
   line-height: normal;
   letter-spacing: 0;
 }
@@ -191,7 +191,7 @@ h3 {
 .page-title {
   padding-top: 20px;
   margin-bottom: 6px;
-  font-size: 36px;
+  font-size: 34px;
   font-weight: 400;
   text-align: center;
 }
@@ -240,21 +240,21 @@ h3 {
 
 .section-heading {
   margin: 0 0 12px;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 400;
 }
 
 .heading-link {
   display: inline-block;
   margin-left: 8px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
 }
 
 .section-note {
   margin: -4px 0 8px;
   color: var(--text-muted);
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .project-list {
@@ -299,7 +299,7 @@ h3 {
 
 .publication-title {
   margin: 0;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   line-height: normal;
   overflow-wrap: break-word;
@@ -310,7 +310,7 @@ h3 {
 
 .publication-authors {
   margin: 0;
-  font-size: 16px;
+  font-size: 15px;
   line-height: normal;
 }
 
@@ -321,7 +321,7 @@ h3 {
 
 .publication-venue {
   margin: 0;
-  font-size: 16px;
+  font-size: 15px;
   font-style: italic;
 }
 
@@ -335,7 +335,7 @@ h3 {
 
 .resource-link {
   display: inline-block;
-  font-size: 16px;
+  font-size: 15px;
   line-height: normal;
   white-space: nowrap;
 }
@@ -345,7 +345,7 @@ h3 {
 .publication-description {
   margin: 0;
   color: var(--text);
-  font-size: 16px;
+  font-size: 15px;
   line-height: normal;
 }
 
@@ -397,14 +397,14 @@ h3 {
 .education-content { min-width: 0; }
 
 .education-content h3 {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   line-height: 1.45;
 }
 
 .education-content p {
   margin: 0;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .education-detail { color: var(--text-muted); }
@@ -433,7 +433,7 @@ h3 {
   margin: 0 auto;
   padding: 0 16px 24px;
   color: var(--text-muted);
-  font-size: 14px;
+  font-size: 13px;
   text-align: center;
 }
 
@@ -512,7 +512,7 @@ h3 {
     grid-row: 1;
     padding-top: 8px;
     margin: 0;
-    font-size: 36px;
+    font-size: 34px;
   }
 
   .profile {

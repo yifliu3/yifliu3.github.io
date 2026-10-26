@@ -137,26 +137,26 @@ class HomepageTests(unittest.TestCase):
         self.assertIn('"Lato"', self.css)
         self.assertIn('fonts/lato-regular-latin.woff2', self.html)
 
-    def test_larger_typography_preserves_compact_spacing(self):
+    def test_typography_preserves_compact_spacing(self):
         self.assertIn('--font-body: "Lato", Verdana, Helvetica, sans-serif', self.css)
         self.assertIn('--font-head: var(--font-body)', self.css)
         self.assertNotIn('Roboto', self.html + self.css)
         for selector, properties in (
-            ("body", ("font-size: 16px", "line-height: normal")),
-            (".page-title", ("font-size: 36px", "font-weight: 400")),
-            (".section-heading", ("font-size: 24px", "font-weight: 400")),
+            ("body", ("font-size: 15px", "line-height: normal")),
+            (".page-title", ("font-size: 34px", "font-weight: 400")),
+            (".section-heading", ("font-size: 22px", "font-weight: 400")),
             (".content-wrapper", ("padding: 20px 0 24px",)),
             (".content-section", ("margin-top: 42px",)),
-            (".publication-title", ("font-size: 16px", "line-height: normal")),
-            (".publication-authors", ("font-size: 16px", "line-height: normal")),
-            (".publication-venue", ("font-size: 16px",)),
-            (".resource-link", ("font-size: 16px", "line-height: normal")),
-            (".publication-description", ("font-size: 16px", "line-height: normal")),
-            (".heading-link", ("font-size: 16px",)),
-            (".section-note", ("font-size: 16px",)),
-            (".education-content h3", ("font-size: 16px",)),
-            (".education-content p", ("font-size: 16px",)),
-            (".footer-wrapper", ("font-size: 14px",)),
+            (".publication-title", ("font-size: 15px", "line-height: normal")),
+            (".publication-authors", ("font-size: 15px", "line-height: normal")),
+            (".publication-venue", ("font-size: 15px",)),
+            (".resource-link", ("font-size: 15px", "line-height: normal")),
+            (".publication-description", ("font-size: 15px", "line-height: normal")),
+            (".heading-link", ("font-size: 15px",)),
+            (".section-note", ("font-size: 15px",)),
+            (".education-content h3", ("font-size: 15px",)),
+            (".education-content p", ("font-size: 15px",)),
+            (".footer-wrapper", ("font-size: 13px",)),
             (".gh-star-badge", ("font-size: 12px",)),
             (".publication-item", ("padding: 0", "gap: 0")),
         ):
@@ -202,7 +202,7 @@ class HomepageTests(unittest.TestCase):
         mobile = self.css.split("@media (max-width: 720px)", 1)[1]
         self.assertNotIn(".project-list {", mobile)
         self.assertRegex(mobile, r"\.publication-item\s*\{[^}]*gap:\s*10px")
-        self.assertRegex(mobile, r"\.page-title\s*\{[^}]*font-size:\s*36px")
+        self.assertRegex(mobile, r"\.page-title\s*\{[^}]*font-size:\s*34px")
         self.assertIn("aspect-ratio: 5 / 3", mobile)
 
     def test_reference_font_files_are_local_and_complete(self):
