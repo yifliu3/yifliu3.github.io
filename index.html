@@ -1,132 +1,98 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Academic homepage of Yifan Liu">
+  <meta name="author" content="Yifan Liu">
   <title>Yifan Liu</title>
+  <link rel="preload" href="fonts/lato-regular-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
   <link rel="stylesheet" href="stylesheet.css">
+  <script>
+    (function () {
+      var theme = 'light';
+      try {
+        var saved = localStorage.getItem('theme');
+        if (saved === 'dark' || saved === 'light') theme = saved;
+      } catch (error) {
+        // Keep the light default when storage is unavailable.
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="nav-wrapper">
-      <a class="menu-toggle" href="#site-menu" aria-label="Open navigation" aria-controls="site-menu">
-        <i class="fa-solid fa-bars" aria-hidden="true"></i>
-      </a>
-      <nav id="site-menu" class="site-nav" aria-label="Primary navigation">
-        <a href="#about"><b>About</b></a>
-        <a href="#education"><b>Education</b></a>
-        <a href="#experience"><b>Experience</b></a>
-        <a href="#open-source"><b>Projects</b></a>
-        <a href="#projects"><b>Publications</b></a>
-        <a href="#awards"><b>Honors</b></a>
-        <a href="#activities"><b>Service</b></a>
-        <a href="#miscellaneous"><b>Miscellaneous</b></a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="profile-cover" aria-label="Profile">
-    <div class="profile-card">
-      <img class="profile-avatar" src="pic/YIFANLIU.PNG" alt="Portrait of Yifan Liu">
-      <div class="profile-identity">
-        <h1>Yifan Liu</h1>
-        <p class="profile-title">Ph.D. Candidate @ CUHK</p>
-        <p class="profile-email">liuyifan365[at]gmail.com</p>
-        <div class="social-links" aria-label="Profile links">
-          <a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=Uv7f-HMAAAAJ" aria-label="Google Scholar">
-            <i class="ai ai-google-scholar" aria-hidden="true"></i>
-          </a>
-          <a href="https://github.com/yifliu3" aria-label="GitHub">
-            <i class="fa-brands fa-github" aria-hidden="true"></i>
-          </a>
-          <a href="mailto:liuyifan365@gmail.com" aria-label="Email">
-            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="theme-controls">
+    <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
+      <i class="fa-solid fa-moon" aria-hidden="true"></i>
+    </button>
+  </div>
 
   <main class="content-wrapper">
-    <section id="about" class="content-section" aria-labelledby="about-heading">
-      <h2 id="about-heading" class="section-heading">
-        <i class="fa-solid fa-id-card" aria-hidden="true"></i> About
-      </h2>
-      <div class="about-body">
-        <p>
-          I am a final-year Ph.D. student in the Department of Electronic Engineering at the
-          Chinese University of Hong Kong <a href="https://www.cuhk.edu.hk/">(CUHK)</a>, supervised by
-          <a href="https://www.ee.cuhk.edu.hk/~yxyuan/">Prof. Yixuan Yuan</a>.
-          Prior to that, I received my B.Eng. in Electronic Information Engineering from
-          Huazhong University of Science and Technology <a href="http://english.hust.edu.cn/">(HUST)</a> in 2021.
-          During my Ph.D., I have been fortunate to work with
-          <a href="https://zhenwwang.github.io/">Dr. Zhenwei Wang</a> and
-          <a href="https://tengfei-wang.github.io/">Dr. Tengfei Wang</a> at the
-          <a href="https://hunyuan.tencent.com">Tencent HY</a> 3D Generation Team.
-          I have also been fortunate to collaborate with industry, particularly with Tencent HY and ByteDance Seed.
-        </p>
-        <p>
-          My research focuses on video and 3D world models, 3D reconstruction, and generative AI,
-          with an emphasis on building generalizable systems for immersive and interactive world
-          understanding and generation.
-        </p>
-        <p>
-          I'm always open to related discussions and collaborations. If you are interested in my
-          work, please feel free to <a href="mailto:liuyifan365@gmail.com">contact me</a>.
-        </p>
+    <section id="about" class="content-section about-section" aria-labelledby="about-heading">
+      <div class="about-intro">
+        <h1 id="about-heading" class="page-title">Yifan Liu</h1>
+        <div class="about-body">
+          <p>
+            I am a Researcher at <strong>Tencent HY</strong>, working with
+            <a href="https://hengcv.github.io/">Dr. Heng Wang</a> in the Video World Foundation Model Team.
+            Previously, I received my Ph.D. in Electronic Engineering from the
+            Chinese University of Hong Kong, advised by
+            <a href="https://www.ee.cuhk.edu.hk/~yxyuan/">Prof. Yixuan Yuan</a>.
+            During my Ph.D., I have been fortunate to work with
+            <a href="https://zhenwwang.github.io/">Dr. Zhenwei Wang</a> and
+            <a href="https://tengfei-wang.github.io/">Dr. Tengfei Wang</a> at the
+            <strong>Tencent HY</strong> 3D Generation Team.
+          </p>
+          <p>
+            My research focuses on <strong>video generation, world models, and 3D vision</strong>, with an emphasis
+            on building practical products for generation and understanding in real-world applications.
+          </p>
+          <p>
+            I'm always open to related discussions and collaborations. If you are interested in my
+            work, please feel free to <a href="mailto:liuyifan365@gmail.com">contact me</a>.
+          </p>
+        </div>
+        <div class="social-links" aria-label="Profile links">
+          <a href="mailto:liuyifan365@gmail.com">Email</a>
+          <a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=Uv7f-HMAAAAJ">Google Scholar</a>
+          <a href="https://github.com/yifliu3">GitHub</a>
+        </div>
       </div>
-    </section>
-
-    <section id="education" class="content-section" aria-labelledby="education-heading">
-      <h2 id="education-heading" class="section-heading">
-        <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Education
-      </h2>
-      <div class="education-list">
-        <article class="education-item">
-          <div class="education-logo education-logo-cuhk">
-            <img src="images/education/cuhk.png" alt="The Chinese University of Hong Kong logo">
-          </div>
-          <div class="education-content">
-            <h3>Ph.D. in Electronic Engineering</h3>
-            <p class="education-school">
-              <a href="https://www.cuhk.edu.hk/">The Chinese University of Hong Kong (CUHK)</a>, 2021–2026
-            </p>
-            <p class="education-detail">Advisor: <a href="https://www.ee.cuhk.edu.hk/~yxyuan/">Prof. Yixuan Yuan</a></p>
-          </div>
-        </article>
-        <article class="education-item">
-          <div class="education-logo">
-            <img src="images/education/hust.png" alt="Huazhong University of Science and Technology logo">
-          </div>
-          <div class="education-content">
-            <h3>B.Eng. in Electronic Information Engineering</h3>
-            <p class="education-school">
-              <a href="https://www.hust.edu.cn/">Huazhong University of Science and Technology (HUST)</a>, 2017–2021
-            </p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="experience" class="content-section" aria-labelledby="experience-heading">
-      <h2 id="experience-heading" class="section-heading">
-        <i class="fa-solid fa-briefcase" aria-hidden="true"></i> Experience
-      </h2>
-      <ul class="simple-list">
-        <li><strong>Research Intern</strong>, <a href="https://hunyuan.tencent.com">Tencent HY</a>, Video World Model Team</li>
-        <li><strong>Research Intern</strong>, <a href="https://hunyuan.tencent.com">Tencent HY</a>, 3D Generation Team</li>
-      </ul>
+      <aside class="profile" aria-label="Profile">
+        <a href="pic/YIFANLIU.PNG" aria-label="View full portrait of Yifan Liu">
+          <img class="profile-avatar" src="pic/YIFANLIU.PNG" alt="Portrait of Yifan Liu" width="1600" height="1600">
+        </a>
+      </aside>
     </section>
 
     <section id="open-source" class="content-section" aria-labelledby="open-source-heading">
-      <h2 id="open-source-heading" class="section-heading">
-        <i class="fa-solid fa-cubes" aria-hidden="true"></i> Open-Source Projects
-      </h2>
+      <h2 id="open-source-heading" class="section-heading">Technical Report</h2>
       <div class="project-list">
-        <article class="project-card">
+        <article class="publication-item">
+          <div class="project-media">
+            <!-- Preview video and poster from jiaxiangc.github.io. -->
+            <video autoplay muted loop playsinline poster="pic/hy-nomas-poster.jpg" aria-label="Hy-Nomas interactive world generation preview">
+              <source src="vid/Hy-Nomas.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="project-content">
+            <h3 class="publication-title"><a href="https://hy-nomas.hy.tencent.com/">Hy-Nomas: Towards Free-Form Interactive World Generation</a></h3>
+            <p class="publication-authors"><strong>Core Contributor</strong></p>
+            <p class="publication-venue">Technical Report, 2026</p>
+            <div class="resource-links">
+              <span class="resource-link resource-link-pending" aria-disabled="true" title="Report coming soon">Report</span>
+              <a class="resource-link" href="https://github.com/Tencent-Hunyuan/Hy-Nomas" data-no-stars="true">Code</a>
+              <a class="resource-link" href="https://hy-nomas.hy.tencent.com/">Project Page</a>
+              <a class="resource-link" href="https://hy-nomas.hy.tencent.com/demo">Online Demo</a>
+            </div>
+            <p class="publication-description">An interactive world generation model that supports free-form, multi-turn text instructions and camera control.</p>
+          </div>
+        </article>
+
+        <article class="publication-item">
           <div class="project-media">
             <video autoplay muted loop playsinline>
               <source src="vid/HYWorld1.1.mp4" type="video/mp4">
@@ -134,12 +100,14 @@
             </video>
           </div>
           <div class="project-content">
-            <h3 class="publication-title">HY-World 1.1</h3>
-            <p class="publication-authors">Core Contributor, 2025</p>
+            <h3 class="publication-title">Hy-World 1.1</h3>
+            <p class="publication-authors"><strong>Core Contributor</strong></p>
+            <p class="publication-venue">Technical Report, 2025</p>
             <div class="resource-links">
+              <a class="resource-link" href="https://3d-models.hunyuan.tencent.com/world/worldMirror1_0/HYWorld_Mirror_Tech_Report.pdf">Report</a>
               <a class="resource-link" href="https://github.com/Tencent-Hunyuan/HunyuanWorld-Mirror" data-no-stars="true">Code</a>
               <a class="resource-link" href="https://3d-models.hunyuan.tencent.com/world/">Project Page</a>
-              <a class="resource-link" href="https://huggingface.co/spaces/tencent/HunyuanWorld-Mirror">Try it now</a>
+              <a class="resource-link" href="https://huggingface.co/spaces/tencent/HunyuanWorld-Mirror">Online Demo</a>
             </div>
             <p class="publication-description">A 3D world reconstruction framework capable of producing immersive, explorable, and interactive scenes from arbitrary-view inputs.</p>
           </div>
@@ -149,12 +117,12 @@
 
     <section id="projects" class="content-section" aria-labelledby="projects-heading">
       <h2 id="projects-heading" class="section-heading">
-        <i class="fa-solid fa-file-lines" aria-hidden="true"></i> Selected Publications
+        Selected Publications
         <a class="heading-link" href="https://scholar.google.com/citations?hl=zh-CN&amp;user=Uv7f-HMAAAAJ">[full list]</a>
       </h2>
-      <p class="section-note">(*equal contribution)</p>
+      <p class="section-note">* Equal contribution</p>
       <div class="project-list">
-        <article class="project-card">
+        <article class="publication-item">
           <div class="project-media">
             <video autoplay muted loop playsinline>
               <source src="vid/WorldMirror.mp4" type="video/mp4">
@@ -164,18 +132,18 @@
           <div class="project-content">
             <h3 class="publication-title"><a href="https://arxiv.org/abs/2510.10726">WorldMirror: Universal 3D World Reconstruction with Any-Prior Prompting</a></h3>
             <p class="publication-authors"><strong>Yifan Liu*</strong>, Zhiyuan Min*, Zhenwei Wang*, Junta Wu, Tengfei Wang, Yixuan Yuan, Yawei Luo, Chunchao Guo</p>
+            <p class="publication-venue">ICML 2026</p>
             <div class="resource-links">
               <a class="resource-link" href="https://arxiv.org/abs/2510.10726">Paper</a>
               <a class="resource-link" href="https://github.com/Tencent-Hunyuan/HunyuanWorld-Mirror">Code</a>
               <a class="resource-link" href="https://3d-models.hunyuan.tencent.com/world/">Project Page</a>
-              <a class="resource-link" href="https://huggingface.co/spaces/tencent/HunyuanWorld-Mirror">Try it now</a>
-              <p class="publication-venue">ICML 2026</p>
+              <a class="resource-link" href="https://huggingface.co/spaces/tencent/HunyuanWorld-Mirror">Online Demo</a>
             </div>
             <p class="publication-description">A universal 3D reconstruction framework capable of processing diverse input modalities and generating various output representations.</p>
           </div>
         </article>
 
-        <article class="project-card">
+        <article class="publication-item">
           <div class="project-media">
             <video autoplay muted loop playsinline>
               <source src="vid/MonoSplat.mp4" type="video/mp4">
@@ -185,127 +153,130 @@
           <div class="project-content">
             <h3 class="publication-title"><a href="http://arxiv.org/abs/2505.15185">MonoSplat: Generalizable 3D Gaussian Splatting from Monocular Depth Foundation Models</a></h3>
             <p class="publication-authors"><strong>Yifan Liu</strong>, Keyu Fan, Weihao Yu, Chenxin Li, Hao LU, Yixuan Yuan</p>
+            <p class="publication-venue">CVPR 2025</p>
             <div class="resource-links">
               <a class="resource-link" href="http://arxiv.org/abs/2505.15185">Paper</a>
               <a class="resource-link" href="https://github.com/CUHK-AIM-Group/MonoSplat">Code</a>
-              <p class="publication-venue">CVPR 2025</p>
             </div>
             <p class="publication-description">A generalizable 3D Gaussian Splatting approach from monocular depth foundation models.</p>
           </div>
         </article>
 
-        <article class="project-card">
-          <div class="project-media">
-            <img src="pic/instantsplamp.png" alt="InstantSplamp method overview">
-          </div>
-          <div class="project-content">
-            <h3 class="publication-title"><a href="https://gaussian-stego.github.io/">InstantSplamp: Fast and Generalizable Stenography Framework for Generative Gaussian Splatting</a></h3>
-            <p class="publication-authors">Chenxin Li*, Hengyu Liu*, Zhiwen Fan, Wuyang Li, <strong>Yifan Liu</strong>, Panwang Pan, Yixuan Yuan</p>
-            <div class="resource-links">
-              <a class="resource-link" href="https://arxiv.org/abs/2407.01301">Paper</a>
-              <a class="resource-link" href="https://github.com/CUHK-AIM-Group/GaussianStego">Code</a>
-              <a class="resource-link" href="https://gaussian-stego.github.io/">Project Page</a>
-              <p class="publication-venue">ICLR 2025</p>
-            </div>
-            <p class="publication-description">A framework for embedding imperceptible, recoverable information in 3D generative model renders.</p>
-          </div>
-        </article>
-
-        <article class="project-card">
+        <article class="publication-item">
           <div class="project-media">
             <img src="pic/IMG_EndoGaussianJ.PNG" alt="EndoGaussian reconstruction overview">
           </div>
           <div class="project-content">
             <h3 class="publication-title"><a href="https://ieeexplore.ieee.org/document/10902412">Foundation Model-guided Gaussian Splatting for 4D Reconstruction of Deformable Tissues</a></h3>
             <p class="publication-authors"><strong>Yifan Liu</strong>, Chenxin Li, Hengyu Liu, Chen Yang, Yixuan Yuan</p>
+            <p class="publication-venue">IEEE TMI 2025</p>
             <div class="resource-links">
               <a class="resource-link" href="https://ieeexplore.ieee.org/document/10902412">Paper</a>
               <a class="resource-link" href="https://github.com/CUHK-AIM-Group/EndoGaussian">Code</a>
               <a class="resource-link" href="https://yifliu3.github.io/EndoGaussian/">Project Page</a>
-              <p class="publication-venue">IEEE TMI 2025</p>
             </div>
             <p class="publication-description">The first work to apply 3D Gaussian Splatting for dynamic (4D) endoscopic reconstruction, guided by foundation models.</p>
           </div>
         </article>
 
-        <article class="project-card">
+        <article class="publication-item">
           <div class="project-media">
             <img src="pic/IMG_ukan.jpg" alt="U-KAN architecture overview">
           </div>
           <div class="project-content">
             <h3 class="publication-title"><a href="https://arxiv.org/abs/2406.02918">U-KAN Makes Strong Backbone for Medical Image Segmentation and Generation</a></h3>
             <p class="publication-authors">Chenxin Li, Xinyu Liu, Wuyang Li, Cheng Wang, Hengyu Liu, <strong>Yifan Liu</strong>, Zhen Chen, Yixuan Yuan</p>
+            <p class="publication-venue">AAAI 2025</p>
             <div class="resource-links">
               <a class="resource-link" href="https://arxiv.org/abs/2406.02918">Paper</a>
               <a class="resource-link" href="https://github.com/CUHK-AIM-Group/U-KAN">Code</a>
               <a class="resource-link" href="https://yes-u-kan.github.io/">Project Page</a>
-              <p class="publication-venue">AAAI 2025</p>
             </div>
             <p class="publication-description">Introducing Kolmogorov-Arnold Networks (KANs) as a strong backbone for medical image segmentation and generation.</p>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-media">
-            <img src="pic/IMG_gaussianreg.png" alt="GaussianReg method overview">
-          </div>
-          <div class="project-content">
-            <h3 class="publication-title"><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Yu_GaussianReg_Rapid_2D3D_Registration_for_Emergency_Surgery_via_Explicit_3D_ICCV_2025_paper.html">GaussianReg: Rapid 2D/3D Registration for Emergency Surgery via Explicit 3D Modeling with Gaussian Primitives</a></h3>
-            <p class="publication-authors">Weihao Yu, Xiaoqing Guo, Xinyu Liu, <strong>Yifan Liu</strong>, Haonan Zheng, Yawen Huang, Yixuan Yuan</p>
-            <div class="resource-links">
-              <a class="resource-link" href="https://openaccess.thecvf.com/content/ICCV2025/html/Yu_GaussianReg_Rapid_2D3D_Registration_for_Emergency_Surgery_via_Explicit_3D_ICCV_2025_paper.html">Paper</a>
-              <a class="resource-link" href="https://github.com/CUHK-AIM-Group/GaussianReg">Code</a>
-              <p class="publication-venue">ICCV 2025</p>
-            </div>
-            <p class="publication-description">Rapid 2D/3D registration for emergency surgery using sparse Gaussian primitives and a ray-based registration scheme.</p>
           </div>
         </article>
       </div>
     </section>
 
+    <section id="education" class="content-section" aria-labelledby="education-heading">
+      <h2 id="education-heading" class="section-heading">Education</h2>
+      <div class="education-list">
+        <article class="education-item">
+          <span class="entry-date">2021–2026</span>
+          <div class="education-logo education-logo-cuhk">
+            <img src="images/education/cuhk.png" alt="The Chinese University of Hong Kong logo" loading="lazy">
+          </div>
+          <div class="education-content">
+            <h3>Ph.D. in Electronic Engineering</h3>
+            <p class="education-school">
+              The Chinese University of Hong Kong (CUHK)
+            </p>
+            <p class="education-detail">Advisor: <a href="https://www.ee.cuhk.edu.hk/~yxyuan/">Prof. Yixuan Yuan</a></p>
+          </div>
+        </article>
+        <article class="education-item">
+          <span class="entry-date">2017–2021</span>
+          <div class="education-logo">
+            <img src="images/education/hust.png" alt="Huazhong University of Science and Technology logo" loading="lazy">
+          </div>
+          <div class="education-content">
+            <h3>B.Eng. in Electronic Information Engineering</h3>
+            <p class="education-school">
+              Huazhong University of Science and Technology (HUST)
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="content-section" aria-labelledby="experience-heading">
+      <h2 id="experience-heading" class="section-heading">Experience</h2>
+      <ul class="experience-list">
+        <li><strong>Research Intern</strong><span class="entry-meta">Tencent HY, Video World Foundation Model Team</span></li>
+        <li><strong>Research Intern</strong><span class="entry-meta">Tencent HY, 3D Generation Team</span></li>
+      </ul>
+    </section>
+
     <section id="awards" class="content-section" aria-labelledby="awards-heading">
-      <h2 id="awards-heading" class="section-heading">
-        <i class="fa-solid fa-award" aria-hidden="true"></i> Selected Honors
-      </h2>
+      <h2 id="awards-heading" class="section-heading">Selected Honors</h2>
       <ul class="bullet-list">
         <li>Golden Reviewer Award, ICML 2026</li>
         <li>Postgraduate Studentship, CUHK, 2021–2026</li>
+        <li>Outstanding Graduates, HUST, 2021</li>
         <li>First Class Scholarship, 2019–2020</li>
         <li>Scholarship of Academic Excellence, 2017–2020</li>
-        <li>Outstanding Graduates of Huazhong University of Science and Technology, 2021</li>
       </ul>
     </section>
 
     <section id="activities" class="content-section" aria-labelledby="activities-heading">
-      <h2 id="activities-heading" class="section-heading">
-        <i class="fa-solid fa-server" aria-hidden="true"></i> Academic Services
-      </h2>
+      <h2 id="activities-heading" class="section-heading">Academic Services</h2>
       <ul class="simple-list">
         <li><strong>Conference Reviewer:</strong> CVPR, ICCV, ECCV, NeurIPS, ICLR, ICML, ICRA, IROS</li>
-        <li><strong>Journal Reviewer:</strong> IJCV, TPAMI, TVCG, TNNLS, TCSVT, TMM, TMI, MIA</li>
+        <li><strong>Journal Reviewer:</strong> TPAMI, IJCV, TVCG, TNNLS, TCSVT, TMM, TMI, MIA</li>
       </ul>
     </section>
 
     <section id="miscellaneous" class="content-section" aria-labelledby="miscellaneous-heading">
-      <h2 id="miscellaneous-heading" class="section-heading">
-        <i class="fa-solid fa-puzzle-piece" aria-hidden="true"></i> Miscellaneous
-      </h2>
-      <p>Curiosity and enthusiasm shape both my research and my life. I'm also passionate about basketball🏀, hiking⛰️, swimming🏊‍♂️, table tennis🏓, and badminton🏸.</p>
+      <h2 id="miscellaneous-heading" class="section-heading">Miscellaneous</h2>
+      <p>Curiosity and enthusiasm shape both my research and my life. I'm also passionate about basketball🏀, swimming🏊‍♂️, table tennis🏓, and badminton🏸.</p>
     </section>
 
-    <footer class="site-footer">
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-wrapper">
       <p>
-        © Yifan Liu · Last updated: May 2026
+        © Yifan Liu · Last updated: October 2026
         <span id="visitCounter" hidden>
           · <i class="fa-solid fa-eye" aria-hidden="true"></i>
           <span id="visitCount">--</span> visits this month
         </span>
       </p>
-      <p>The style of this website is borrowed from Shengyuan Liu, Jun Cen and Zeqing Yuan</p>
-    </footer>
-  </main>
+      <p class="template-credit">Website template by <a href="https://github.com/jonbarron/jonbarron.github.io">Jon Barron</a>.</p>
+    </div>
+  </footer>
 
-  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top" title="Back to top">
     <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
   </button>
 
@@ -315,11 +286,35 @@
 
   <script>
     (function () {
+      var root = document.documentElement;
+      var button = document.querySelector('.theme-toggle');
+      var icon = button.querySelector('i');
+      function syncTheme() {
+        var dark = root.getAttribute('data-theme') === 'dark';
+        var label = dark ? 'Switch to light mode' : 'Switch to dark mode';
+        icon.className = dark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+        button.setAttribute('aria-label', label);
+        button.title = label;
+      }
+
+      button.addEventListener('click', function () {
+        var theme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+        try { localStorage.setItem('theme', theme); } catch (error) {}
+        syncTheme();
+      });
+      syncTheme();
+    })();
+  </script>
+
+  <script>
+    (function () {
       var namespace = 'yifliu3-hp-7k3m9q2x';
       var now = new Date();
       var month = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
       var sessionKey = 'visit-counted-' + month;
-      var counted = sessionStorage.getItem(sessionKey);
+      var counted = false;
+      try { counted = sessionStorage.getItem(sessionKey); } catch (error) {}
       var action = counted ? 'get' : 'hit';
       var endpoint = 'https://abacus.jasoncameron.dev/' + action + '/' + namespace + '/' + month;
 
@@ -329,7 +324,7 @@
         })
         .then(function (data) {
           if (!data || typeof data.value !== 'number') return;
-          sessionStorage.setItem(sessionKey, '1');
+          try { sessionStorage.setItem(sessionKey, '1'); } catch (error) {}
           document.getElementById('visitCount').textContent = data.value.toLocaleString();
           document.getElementById('visitCounter').hidden = false;
         })
@@ -390,7 +385,8 @@
 
       window.addEventListener('scroll', update, { passive: true });
       button.addEventListener('click', function () {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({ top: 0, behavior: reducedMotion ? 'instant' : 'smooth' });
       });
       update();
     })();
