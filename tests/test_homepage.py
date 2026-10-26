@@ -351,19 +351,15 @@ class HomepageTests(unittest.TestCase):
             heading = self.parser.ids[heading_id]
             self.assertIn(heading, section.descendants())
 
-    def test_theme_defaults_to_light_and_preserves_manual_choice(self):
-        self.assertIn('<html lang="en" data-theme="light">', self.html)
-        self.assertIn("var theme = 'light';", self.html)
+    def test_homepage_uses_light_theme_only(self):
+        self.assertIn('<meta name="color-scheme" content="light">', self.html)
+        self.assertIn('color-scheme: light;', self.css)
+        self.assertIn('--bg: #ffffff;', self.css)
         self.assertNotIn('prefers-color-scheme', self.html)
         self.assertNotIn('prefers-color-scheme', self.css)
-        self.assertIn('html[data-theme="dark"]', self.css)
-        self.assertIn("localStorage.getItem('theme')", self.html)
-        self.assertIn("localStorage.setItem('theme', theme)", self.html)
-        self.assertIn("try { localStorage.setItem", self.html)
-        self.assertLess(
-            self.html.index("document.documentElement.setAttribute('data-theme'"),
-            self.html.index("<body>"),
-        )
+        self.assertNotIn('data-theme', self.html + self.css)
+        self.assertNotIn('theme-toggle', self.html + self.css)
+        self.assertNotIn('localStorage', self.html)
 
     def test_jon_barron_profile_links_and_unframed_rows(self):
         links = self.root.descendants(class_name="social-links")[0].descendants("a")
@@ -479,12 +475,8 @@ class HomepageTests(unittest.TestCase):
         self.assertRegex(mobile_css, r"\.profile\s*\{[^}]*width:\s*150px")
         self.assertIn("object-fit: contain", self.css)
 
-    def test_dark_mode_uses_blue_accents_and_emphasis(self):
-        explicit_dark = re.search(
-            r"html\[data-theme=\"dark\"\]\s*\{([^}]+)\}", self.css,
-        ).group(1)
-        self.assertIn("--accent: #83b4d4", explicit_dark)
-        self.assertIn("--emphasis-text: var(--accent)", explicit_dark)
+    def test_light_theme_preserves_links_and_emphasis(self):
+        self.assertIn("--emphasis-text: var(--text)", self.css)
         self.assertIn("--accent: #1772d0", self.css)
         self.assertIn("--hover: #f09228", self.css)
         self.assertRegex(self.css, r"strong\s*\{\s*color:\s*var\(--emphasis-text\)")

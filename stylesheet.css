@@ -92,23 +92,6 @@
   --font-head: var(--font-body);
 }
 
-html[data-theme="dark"] {
-  color-scheme: dark;
-  --accent: #83b4d4;
-  --hover: #b3d5eb;
-  --text: #d8dadd;
-  --text-muted: #a5abb3;
-  --emphasis-text: var(--accent);
-  --bg: #181a1b;
-  --border: #343a40;
-  --selection-bg: #334c60;
-  --selection-text: #edf3f7;
-  --star-bg: #332d20;
-  --star-text: #efcf8b;
-  --star-icon: #e6b957;
-  --star-border: #59492c;
-}
-
 * { box-sizing: border-box; }
 
 ::selection {
@@ -172,31 +155,6 @@ h3 {
   font-family: var(--font-head);
   line-height: normal;
 }
-
-.page-tools {
-  display: flex;
-  justify-content: flex-end;
-  padding: 0 20px;
-}
-
-.theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  min-height: 40px;
-  padding: 8px 12px;
-  color: var(--selection-text);
-  background: var(--selection-bg);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  font-size: 13px;
-  line-height: 1;
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-.theme-toggle:hover { border-color: var(--accent); }
 
 .content-wrapper {
   width: 100%;
@@ -541,8 +499,6 @@ h3 {
 
 @media (max-width: 720px) {
   .content-wrapper { padding: 16px 0 20px; }
-
-  .page-tools { padding: 0 16px; }
 
   .about-section {
     grid-template-columns: minmax(0, 1fr);

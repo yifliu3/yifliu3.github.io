@@ -1,42 +1,22 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
+  <meta name="color-scheme" content="light">
   <meta name="description" content="Academic homepage of Yifan Liu">
   <meta name="author" content="Yifan Liu">
   <title>Yifan Liu</title>
-  <script>
-    (function () {
-      var theme = 'light';
-      try {
-        var saved = localStorage.getItem('theme');
-        if (saved === 'dark' || saved === 'light') theme = saved;
-      } catch (error) {
-        // Keep the light default when storage is unavailable.
-      }
-      document.documentElement.setAttribute('data-theme', theme);
-    })();
-  </script>
   <link rel="preload" href="fonts/lato-regular-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
   <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true">
-    <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M21 13.1A9 9 0 0 1 10.9 3a9 9 0 1 0 10.1 10.1Z"/></symbol>
-    <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 1v2m0 18v2M1 12h2m18 0h2M4.2 4.2l1.4 1.4m12.8 12.8 1.4 1.4M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
     <symbol id="icon-star" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.2L5.8 21 7 14.2 2 9.3l6.9-1Z"/></symbol>
     <symbol id="icon-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3"/></symbol>
     <symbol id="icon-up" viewBox="0 0 24 24"><path d="m5 15 7-7 7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   </svg>
   <main class="content-wrapper">
-    <div class="page-tools">
-      <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
-        <i class="icon" aria-hidden="true"><svg><use href="#icon-moon"></use></svg></i>
-        <span class="theme-toggle-label">Dark mode</span>
-      </button>
-    </div>
     <section id="about" class="content-section about-section" aria-labelledby="about-heading">
       <div class="about-intro">
         <h1 id="about-heading" class="page-title">Yifan Liu</h1>
@@ -290,31 +270,6 @@
   <div class="media-preview" id="mediaPreview" aria-hidden="true">
     <div class="media-preview-frame" id="mediaPreviewFrame"></div>
   </div>
-
-  <script>
-    (function () {
-      var root = document.documentElement;
-      var button = document.querySelector('.theme-toggle');
-      var icon = button.querySelector('use');
-      var buttonText = button.querySelector('.theme-toggle-label');
-      function syncTheme() {
-        var dark = root.getAttribute('data-theme') === 'dark';
-        var label = dark ? 'Switch to light mode' : 'Switch to dark mode';
-        icon.setAttribute('href', dark ? '#icon-sun' : '#icon-moon');
-        buttonText.textContent = dark ? 'Light mode' : 'Dark mode';
-        button.setAttribute('aria-label', label);
-        button.title = label;
-      }
-
-      button.addEventListener('click', function () {
-        var theme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', theme);
-        try { localStorage.setItem('theme', theme); } catch (error) {}
-        syncTheme();
-      });
-      syncTheme();
-    })();
-  </script>
 
   <script>
     (function () {
