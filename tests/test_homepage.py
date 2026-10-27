@@ -422,19 +422,21 @@ class HomepageTests(unittest.TestCase):
         self.assertEqual(
             [(link.text().strip(), link.attrs["href"]) for link in links],
             [
+                ("Report", "https://github.com/Tencent-Hunyuan/Hy-Nomas/blob/main/Hy_Nomas_Tech_Report.pdf"),
                 ("Code", "https://github.com/Tencent-Hunyuan/Hy-Nomas"),
                 ("Project Page", "https://hy-nomas.hy.tencent.com/"),
                 ("Online Demo", "https://hy-nomas.hy.tencent.com/demo"),
             ],
         )
         self.assertEqual(links[0].attrs.get("data-no-stars"), "true")
+        self.assertEqual(links[1].attrs.get("data-no-stars"), "true")
         self.assertIn(
             "An interactive world generation model that supports free-form, "
             "multi-turn text instructions and camera control.",
             report.text(),
         )
 
-    def test_report_resources_start_with_report_link_or_placeholder(self):
+    def test_report_resources_start_with_report_link(self):
         reports = self.parser.ids["open-source"].descendants("article")
         items = [
             report.descendants(class_name="resource-links")[0].children
@@ -445,12 +447,14 @@ class HomepageTests(unittest.TestCase):
                 [resource.text().strip() for resource in resources],
                 ["Report", "Code", "Project Page", "Online Demo"],
             )
-        pending = items[0][0]
-        self.assertEqual(pending.tag, "span")
-        self.assertEqual(pending.attrs.get("aria-disabled"), "true")
-        self.assertNotIn("href", pending.attrs)
-        self.assertTrue(pending.has_class("resource-link-pending"))
-        self.assertIn(".resource-link-pending { color: var(--text-muted); }", self.css)
+        nomas_report_link = items[0][0]
+        self.assertEqual(nomas_report_link.tag, "a")
+        self.assertEqual(
+            nomas_report_link.attrs["href"],
+            "https://github.com/Tencent-Hunyuan/Hy-Nomas/blob/main/Hy_Nomas_Tech_Report.pdf",
+        )
+        self.assertNotIn("aria-disabled", nomas_report_link.attrs)
+        self.assertFalse(nomas_report_link.has_class("resource-link-pending"))
         report_link = items[1][0]
         self.assertEqual(report_link.tag, "a")
         self.assertEqual(
