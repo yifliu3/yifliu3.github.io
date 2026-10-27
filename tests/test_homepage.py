@@ -246,16 +246,22 @@ class HomepageTests(unittest.TestCase):
 
     def test_publication_venues_are_text_before_resource_links(self):
         expected = [
-            "ICML 2026", "CVPR 2025",
-            "IEEE TMI 2025", "AAAI 2025",
+            ("International Conference on Machine Learning", "ICML", 2026),
+            ("IEEE/CVF Conference on Computer Vision and Pattern Recognition", "CVPR", 2025),
+            ("IEEE Transactions on Medical Imaging", "TMI", 2025),
+            ("AAAI Conference on Artificial Intelligence", "AAAI", 2025),
         ]
         publications = self.parser.ids["projects"].descendants("article")
         self.assertEqual(len(publications), len(expected))
-        for item, venue in zip(publications, expected):
+        for item, (full_name, abbreviation, year) in zip(publications, expected):
             body = item.descendants(class_name="project-content")[0]
             venue_node = body.descendants("p", "publication-venue")[0]
             links = body.descendants(class_name="resource-links")[0]
-            self.assertEqual(venue_node.text().strip(), venue)
+            self.assertEqual(venue_node.content[0], f"{full_name} (")
+            self.assertEqual(venue_node.content[-1], f"), {year}")
+            emphasis = venue_node.descendants("strong")
+            self.assertEqual(len(emphasis), 1)
+            self.assertEqual(emphasis[0].text(), abbreviation)
             self.assertLess(body.children.index(venue_node), body.children.index(links))
             self.assertFalse(links.descendants(class_name="publication-venue"))
         self.assertNotIn("venue-badge", self.html)
@@ -643,7 +649,7 @@ class HomepageTests(unittest.TestCase):
         self.assertIn("First Class Scholarship, HUST, 2019–2020", self.html)
         self.assertNotIn("Self-Reliance Scholarship", self.html)
         interests = self.parser.ids["miscellaneous"].text()
-        for interest in ("basketball", "swimming", "table tennis", "badminton"):
+        for interest in ("basketball", "swimming", "table tennis", "Delta Force", "CS:GO"):
             self.assertIn(interest, interests)
         self.assertNotIn("hiking", interests)
         self.assertNotIn("\u26f0", interests)

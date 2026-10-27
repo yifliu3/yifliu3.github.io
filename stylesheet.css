@@ -422,6 +422,21 @@ h3 {
 
 .bullet-list li + li { margin-top: 4px; }
 #miscellaneous p { margin: 0; }
+#miscellaneous p + p { margin-top: 5px; }
+
+.game-interest {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.game-interest img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
 
 .footer-wrapper {
   max-width: var(--content-width);
