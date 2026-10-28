@@ -574,7 +574,7 @@ class HomepageTests(unittest.TestCase):
             "My research focuses on video generation, world models, and 3D vision, with an emphasis "
             "on building practical products for generation and understanding in real-world applications.",
             "Dr. Zhenwei Wang",
-            "Dr. Tengfei Wang at the Tencent HY 3D team.",
+            "Dr. Tengfei Wang at the Tencent HY 3D Generation Team.",
         ):
             self.assertIn(text, about)
         heng_links = [
@@ -591,7 +591,7 @@ class HomepageTests(unittest.TestCase):
         self.assertEqual(advisor_links[0].attrs["href"], "https://www.ee.cuhk.edu.hk/~yxyuan/")
         for removed in (
             "final-year Ph.D. student",
-            "B.Eng.", "ByteDance Seed", "Tencent HY 3D Generation Team",
+            "B.Eng.", "ByteDance Seed",
         ):
             self.assertNotIn(removed, about)
         self.assertIn('href="mailto:liuyifan365@gmail.com">contact me</a>', self.html)
