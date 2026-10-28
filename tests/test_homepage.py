@@ -574,7 +574,7 @@ class HomepageTests(unittest.TestCase):
             "My research focuses on video generation, world models, and 3D vision, with an emphasis "
             "on building practical products for generation and understanding in real-world applications.",
             "Dr. Zhenwei Wang",
-            "Dr. Tengfei Wang at the Tencent HY 3D.",
+            "Dr. Tengfei Wang at the Tencent HY 3D team.",
         ):
             self.assertIn(text, about)
         heng_links = [
