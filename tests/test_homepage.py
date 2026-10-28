@@ -1,3 +1,4 @@
+from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 import json
@@ -526,20 +527,24 @@ class HomepageTests(unittest.TestCase):
         self.assertIn("fetch('data/github-stars.json'", self.html)
         self.assertNotIn("api.github.com", self.html)
         stars = json.loads((ROOT / "data/github-stars.json").read_text(encoding="utf-8"))
+        updated_at = datetime.fromisoformat(stars.pop("_updated_at"))
+        self.assertIsNotNone(updated_at.tzinfo)
+        self.assertLessEqual(updated_at, datetime.now(timezone.utc))
         self.assertEqual(
             set(stars),
             {
                 "Tencent-Hunyuan/HunyuanWorld-Mirror",
-                "CUHK-AIM-Group/MonoSplat", "CUHK-AIM-Group/GaussianStego",
+                "CUHK-AIM-Group/MonoSplat",
                 "CUHK-AIM-Group/EndoGaussian", "CUHK-AIM-Group/U-KAN",
-                "CUHK-AIM-Group/GaussianReg",
             },
         )
         self.assertTrue(all(isinstance(count, int) and count >= 0 for count in stars.values()))
         workflow = (ROOT / ".github/workflows/update-github-stars.yml").read_text(encoding="utf-8")
         for marker in (
-            "schedule:", "workflow_dispatch:", "pages: write",
+            "schedule:", "workflow_dispatch:", "pages: write", "contents: write",
             "python3 scripts/update_github_stars.py",
+            "python3 -m unittest discover -s tests",
+            "git add data/github-stars.json", "git push origin HEAD:main",
             "actions/upload-pages-artifact@v4", "actions/deploy-pages@v4",
         ):
             self.assertIn(marker, workflow)

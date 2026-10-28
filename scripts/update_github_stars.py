@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Generate static GitHub star counts for repository links on the homepage."""
 
+from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse
@@ -62,7 +63,10 @@ def fetch_star_count(repository, token=None):
     )
     with urlopen(request, timeout=20) as response:
         data = json.load(response)
-    return int(data["stargazers_count"])
+    count = data["stargazers_count"]
+    if type(count) is not int or count < 0:
+        raise ValueError(f"Invalid star count for {repository}: {count!r}")
+    return count
 
 
 def main():
@@ -75,6 +79,9 @@ def main():
         repository: fetch_star_count(repository, token)
         for repository in repositories
     }
+    # Metadata is ignored by the homepage's repository-key lookup. Always save
+    # a timestamp so a successful refresh is visible even if no count changed.
+    stars["_updated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(
