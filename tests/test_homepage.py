@@ -422,7 +422,7 @@ class HomepageTests(unittest.TestCase):
         self.assertEqual(
             [(link.text().strip(), link.attrs["href"]) for link in links],
             [
-                ("Report", "https://github.com/Tencent-Hunyuan/Hy-Nomas/blob/main/Hy_Nomas_Tech_Report.pdf"),
+                ("Report", "https://arxiv.org/pdf/2610.36729"),
                 ("Code", "https://github.com/Tencent-Hunyuan/Hy-Nomas"),
                 ("Project Page", "https://hy-nomas.hy.tencent.com/"),
                 ("Online Demo", "https://hy-nomas.hy.tencent.com/demo"),
@@ -451,7 +451,7 @@ class HomepageTests(unittest.TestCase):
         self.assertEqual(nomas_report_link.tag, "a")
         self.assertEqual(
             nomas_report_link.attrs["href"],
-            "https://github.com/Tencent-Hunyuan/Hy-Nomas/blob/main/Hy_Nomas_Tech_Report.pdf",
+            "https://arxiv.org/pdf/2610.36729",
         )
         self.assertNotIn("aria-disabled", nomas_report_link.attrs)
         self.assertFalse(nomas_report_link.has_class("resource-link-pending"))
