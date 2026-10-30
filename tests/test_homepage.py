@@ -569,7 +569,7 @@ class HomepageTests(unittest.TestCase):
             "I am a Researcher at Tencent HY",
             "working with Dr. Heng Wang in the Video World Foundation Model Team.",
             "Previously, I received my Ph.D. in Electronic Engineering from the Chinese University "
-            "of Hong Kong, advised by Prof. Yixuan Yuan.",
+            "of Hong Kong, supervised by Prof. Yixuan Yuan.",
             "During my Ph.D., I have been fortunate to work with",
             "My research focuses on video generation, world models, and 3D vision, with an emphasis "
             "on building practical products for generation and understanding in real-world applications.",
